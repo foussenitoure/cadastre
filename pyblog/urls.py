@@ -51,19 +51,19 @@ urlpatterns = [
       #         ULRS KALALISO
       #             START
       # =================================
-      path('homepage/', views.homepage, name='homepage'),
-      path('orderdetail/', views.orderdetail, name='orderdetail'),
-      path('orderdetail/detail/<int:orderdetail_id>/', views.orderdetail_detail, name='orderdetail_detail'),
-      path('order/', views.order, name='order'),
-      path('order/detail/<int:order_id>/', views.order_detail, name='order_detail'),
-      path('product/', views.product, name='product'),
-      path('product/detail/<int:product_id>/', views.product_detail, name='product_detail'),
-      path('person/', views.person, name='person'),
-      path('person/detail/<int:person_id>/', views.person_detail, name='person_detail'),
-      path('payment/', views.payment, name='payment'),
-      path('payment/detail/<int:payment_id>/', views.payment_detail, name='payment_detail'),
-      path('mesure/', views.mesure, name='mesure'),
-      path('mesure/detail/<int:mesure_id>/', views.mesure_detail, name='mesure_detail'),
+      # path('homepage/', views.homepage, name='homepage'),
+      # path('orderdetail/', views.orderdetail, name='orderdetail'),
+      # path('orderdetail/detail/<int:orderdetail_id>/', views.orderdetail_detail, name='orderdetail_detail'),
+      # path('order/', views.order, name='order'),
+      # path('order/detail/<int:order_id>/', views.order_detail, name='order_detail'),
+      # path('product/', views.product, name='product'),
+      # path('product/detail/<int:product_id>/', views.product_detail, name='product_detail'),
+      # path('person/', views.person, name='person'),
+      # path('person/detail/<int:person_id>/', views.person_detail, name='person_detail'),
+      # path('payment/', views.payment, name='payment'),
+      # path('payment/detail/<int:payment_id>/', views.payment_detail, name='payment_detail'),
+      # path('mesure/', views.mesure, name='mesure'),
+      # path('mesure/detail/<int:mesure_id>/', views.mesure_detail, name='mesure_detail'),
 
       # =================================
       #         ULRS KALALISO
@@ -90,8 +90,8 @@ urlpatterns = [
       #         ULRS MEMBER
       #             START
       # =================================
-      path('member/', views.member, name='member'),
-      path('cotisation/', views.cotisation, name='cotisation'),
+      # path('member/', views.member, name='member'),
+      # path('cotisation/', views.cotisation, name='cotisation'),
 
       # =================================
       #         ULRS MEMBER
@@ -103,11 +103,11 @@ urlpatterns = [
       #         ULRS LOCALISATION
       #             START
       # =================================
-      path('region/', views.region, name='region'),
-      path('cercle/', views.cercle, name='cercle'),
-      path('arrondissement/', views.arrondissement, name='arrondissement'),
-      path('commune/', views.commune, name='commune'),
-      path('village/', views.village, name='village'),
+      # path('region/', views.region, name='region'),
+      # path('cercle/', views.cercle, name='cercle'),
+      # path('arrondissement/', views.arrondissement, name='arrondissement'),
+      # path('commune/', views.commune, name='commune'),
+      # path('village/', views.village, name='village'),
 
       # =================================
       #         ULRS LOCALISATION
