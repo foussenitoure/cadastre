@@ -130,5 +130,6 @@ FORM_RENDERER = 'django.forms.renderers.DjangoTemplates'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# GDAL_LIBRARY_PATH = "/Users/toure/Library/gdal/3.3.2_3/lib/libgdal.dylib"
-# GEOS_LIBRARY_PATH = "/Users/toure/Library/geos/3.9.1/lib/libgeos_c.dylib"
+GDAL_LIBRARY_PATH = "/Users/toure/Library/Frameworks/GDAL.framework/Versions/2.4/unix/lib/libgdal.dylib"
+#GEOS_LIBRARY_PATH = "/Users/toure/Library/geos/3.9.1/lib/libgeos_c.dylib"
+# /Library/Frameworks
