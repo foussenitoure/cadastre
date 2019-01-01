@@ -17,6 +17,7 @@ from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter, A5
 from reportlab.pdfgen import canvas
 from django.core.serializers  import serialize
+
 # import genHeaderTable
 # import genBodyTable
 # import genFooterTable
@@ -39,6 +40,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import FormView
 from django.template import context
 from django.template import defaulttags
+# from geo.Geoserver import Geoserver
 from contacts.models import Contact, Parcel, Person, Mesure, \
                             Order, Product, Payment, OrderDetail, Region, Cercle, Commune, Village
 

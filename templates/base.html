@@ -17,7 +17,7 @@
     </head>
 <style>
         h5{
-            color: red;
+            color: royalblue;
             margin: 2%;
             padding-top: auto;
         }
@@ -34,12 +34,6 @@
             bottom: 400px;
           }
 
-        {#footer{#}
-            {#background-color: darkgrey;#}
-            {#padding-top: 2%;#}
-            {#margin-bottom: auto;#}
-
-        {#}#}
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -56,8 +50,8 @@
     </style>
  <header>
        <div>
-           <div>
-               <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-info">
+           <nav>
+               <div class="navbar sticky-top navbar-expand-md navbar-dark bg-info">
                   <a class="navbar-brand">PORTAIL DU FONCIER RURAL</a>
                   <button class="navbar-toggler" type="button" data-toggler= "collapse" data-targer="navbar">
                     <span class="navbar-toggler-icon"></span>
@@ -95,11 +89,11 @@
                               </li>
 
                         {% endif %}
-                 </ul>
-             </nav>
-
-       </div>
-     </div>
+                      </ul>
+                </ul>
+             </div>
+          </nav>
+      </div>
   </header>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -169,32 +163,32 @@
   <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      <span class="fs-4">Sidebar</span>
+      <span class="fs-4">Contenu</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
 
       <li class="nav-item">
         <a href="{% url 'about' %}" class="nav-link active" aria-current="page">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+          <svg class="bi me-2" width="18" height="18"><use xlink:href="#home"/></svg>
           About
         </a>
       </li>
       <li>
         <a href="{% url 'workspaces' %}" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+          <svg class="bi me-2" width="18" height="18"><use xlink:href="#speedometer2"/></svg>
           Workspace
         </a>
       </li>
       <li>
         <a href="{% url 'adresses' %}" class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+          <svg class="bi me-2" width="18" height="18"><use xlink:href="#table"/></svg>
           Contacts
         </a>
       </li>
       <li>
         <a href="{% url 'parcel' %}"class="nav-link link-dark">
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+          <svg class="bi me-2" width="18" height="18"><use xlink:href="#grid"/></svg>
           Parcel
         </a>
       </li>
@@ -202,17 +196,17 @@
     <hr>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <img src="https://github.com/mdo.png" alt="" width="52" height="52" class="rounded-circle me-2">
         <strong>fulani</strong>
       </a>
-      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
-    </div>
+          <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+     </div>
   </div>
 
 </main>
@@ -234,9 +228,10 @@
 </footer>
        <script src="{% static 'node_modules/leaflet/dist/leaflet.js'%}"></script>
        <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+       <script src="{% static 'jquery/jquery.js'%}"></script>
 {#     <script src="{% static 'bootstrap/js/index.js'%}"></script>#}
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-{#       <script src="/templates/jquery/script.js"></script>#}
+{#       <script src="/pyblog/static/jquery/jquery.js"></script>#}
 {#     <script src="{% static 'L.Geoserver.js'%}"></script>#}
 </html>
 
@@ -299,8 +294,17 @@
       });
         wmsLayer.addTo(map);
 
-    $( "p" ).click(function() {
-      $( this ).slideUp()
+    {#$( "p" ).click(function() {#}
+    {#  $( this ).slideUp()#}
+    {#  });#}
+
+     $( "p" ).click(function() {
+      alert("hello the programmer ")
+      });
+
+
+    var clic = ("p").click(function() {
+      clic.alert("hello the programmer ");
       });
 
 </script>
