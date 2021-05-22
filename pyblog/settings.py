@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Our the app
+    'kalaliso',
     'blog',
     'contacts',
     # 'bootstrap3',
