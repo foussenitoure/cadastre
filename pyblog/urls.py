@@ -4,12 +4,13 @@ from django.urls import include, path
 from django.conf.urls import url
 from contacts import views
 # from blog import views
+# from kalaliso import views
 from blog.views import post_detail, post_list
 from django.conf import settings
 from django.conf.urls.static import static
 
 
-app_name = 'contacts', 'blog',
+app_name = 'contacts', 'blog', 'kalaliso',
            # 'authenticate',
 
 urlpatterns = [
@@ -28,4 +29,9 @@ urlpatterns = [
       path('register/', views.register_user, name='register'),
       path('edit/profile/', views.edit_profile, name='edit_profile'),
       path('change/password/', views.change_password, name='change_password'),
+      # path for app kalaliso
+      path('person/', views.person, name='person_bord'),
+      path('mesure/', views.mesure, name='mesure_bord'),
+      path('product/', views.product, name='product_bord'),
+      path('command/', views.command, name='command_bord'),
 ]

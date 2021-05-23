@@ -24,6 +24,7 @@ from django.template import context
 from django.template import defaulttags
 from blog.models import Post,  PostCategory, Comment
 from contacts.models import Contact
+from kalaliso.models import Person, Mesure, Commande, Produit
 from blog import model_helpers
 from blog import navigation
 
@@ -194,3 +195,22 @@ def post_detail(request, post_id):
    }
 	return render(request, 'blog/post_detail.html', context)
 
+
+def person(request):
+    person = Person.objects.all()
+    context = {
+        'person': person,
+    }
+    return render(request, 'kalaliso/person.html', context)
+
+
+def mesure(request):
+    return None
+
+
+def command(request):
+    return None
+
+
+def product(request):
+    return None
