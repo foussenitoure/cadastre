@@ -1,6 +1,11 @@
-body{
+.body{
     margin: 10px;
     padding: 20px;
+    background-color: rebeccapurple;
+}
+
+.form{
+    background-color: red;
 }
 
 .wrapper{

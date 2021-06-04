@@ -16,11 +16,8 @@ from .import views
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
-
-
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from django.template import context
 from django.template import defaulttags
 from blog.models import Post,  PostCategory, Comment
 from contacts.models import Contact
@@ -41,14 +38,15 @@ from blog import navigation
 #           return render(request, 'contacts/contacts.html', context)
 
 
-# def contact(request,):
-#     contacts = Contact.objects.all()
-#     context = {
-#         'contacts': contacts,
-# 	}
-#     # return render(request, 'contacts/contacts.html', context)
-#     form = ContactForm()
-#     return render(request, 'contacts/contacts.html', {'form': form})
+def contact(request):
+    contacts = Contact.objects.all()
+    context = {
+        'contacts': contacts,}
+    # return render(request, 'contacts/contacts.html', context)
+    form = ContactForm()
+    return render(request, 'contacts/contacts.html', {'form': form})
+
+
 #
 # def thanks(request):
 #     return HttpResponse('Thanks, your form has been processed')
@@ -56,34 +54,34 @@ from blog import navigation
 def home(request):
     return render(request, 'contacts/home.html', {})
 
-def contact(request):
-    if request.method == 'POST':
-        status         = request.POST.get('')
-        sexe           = request.POST.get('')
-        no             = request.POST.get('nom')
-        prenom         = request.POST.get('prenom')
-        matricule      = request.POST.get('matricule')
-        contact        = request.POST.get('contact')
-        n_cin          = request.POST.get('n_cin')
-        nina           = request.POST.get('nina')
-        profession     = request.POST.get('profession')
-        rcimm          = request.POST.get('rcimm')
-        nif            = request.POST.get('nif')
-        siege_social   = request.POST.get('siege_social')
-        responsable    = request.POST.get('responsable')
-        email          = request.POST.get('email')
-        created_at     = request.POST.get('created_at')
-
-        data = Contact(status=status, sexe=sexe, nom=no, prenom=prenom, matricule=matricule, contact=contact, n_cin=n_cin, nina=nina,
-                        profession=profession, rcimm=rcimm, nif=nif, siege_social=siege_social,
-                        responsable=responsable, email=email, created_at=created_at)
-        data.save()
-        # return HttpResponse(('adresses'))
-        return HttpResponseRedirect(reverse('home'))
-
-    else:
-        form = ContactForm()
-    return render(request, 'contacts/contacts.html', {'form': form})
+# def contact(request):
+#     if request.method == 'POST':
+#         status         = request.POST.get('')
+#         sexe           = request.POST.get('')
+#         no             = request.POST.get('nom')
+#         prenom         = request.POST.get('prenom')
+#         matricule      = request.POST.get('matricule')
+#         contact        = request.POST.get('contact')
+#         n_cin          = request.POST.get('n_cin')
+#         nina           = request.POST.get('nina')
+#         profession     = request.POST.get('profession')
+#         rcimm          = request.POST.get('rcimm')
+#         nif            = request.POST.get('nif')
+#         siege_social   = request.POST.get('siege_social')
+#         responsable    = request.POST.get('responsable')
+#         email          = request.POST.get('email')
+#         created_at     = request.POST.get('created_at')
+#
+#         data = Contact(status=status, sexe=sexe, nom=no, prenom=prenom, matricule=matricule, contact=contact, n_cin=n_cin, nina=nina,
+#                         profession=profession, rcimm=rcimm, nif=nif, siege_social=siege_social,
+#                         responsable=responsable, email=email, created_at=created_at)
+#         data.save()
+#         return HttpResponse(('adresses'))
+#         # return HttpResponseRedirect(reverse('home'))
+#
+#     else:
+#         form = ContactForm()
+#     return render(request, 'contacts/contacts.html', {'form': form})
 
 
 def contact_detail(request, contact_id):
