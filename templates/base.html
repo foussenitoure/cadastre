@@ -25,19 +25,14 @@
             background-color: whitesmoke;
         }
         .container{
-            padding: 150px;
+            padding: 100px;
             background-color: #00B000;
             height: 450px;
             width: 1000px;
             float: right;
             position: relative;
-            bottom: 450px;
+            bottom: 400px;
           }
-    map {
-	overflow: hidden;
-	height: 600px;
-	width: 1200px;
-	}
 
         {#footer{#}
             {#background-color: darkgrey;#}
@@ -237,11 +232,11 @@
         <small>Copyright @ 2018-2021 GisConsulting4</small>
     </div>
 </footer>
-
-       <script src="{% static 'leaflet.js'%}"></script>
+       <script src="{% static 'node_modules/leaflet/dist/leaflet.js'%}"></script>
        <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
 {#     <script src="{% static 'bootstrap/js/index.js'%}"></script>#}
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{#       <script src="/templates/jquery/script.js"></script>#}
 {#     <script src="{% static 'L.Geoserver.js'%}"></script>#}
 </html>
 

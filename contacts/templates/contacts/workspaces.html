@@ -2,28 +2,22 @@
 {% load static %}
 {% load leaflet_tags %}
 {% block content %}
+{##}
+{#<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">#}
+{#<link rel="stylesheet" href="{% static 'bootstrap/css/style.css' %}">#}
 
-
-{#       <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">#}
-{#       <link rel="stylesheet" href="{% static 'bootstrap/css/style.css' %}">#}
 <style>
 
-    {#.map{#}
-    {#        padding: 10px;#}
-            {#background-color: #00B000;#}
-    {#        height: 650px;#}
-    {#        width: 1200px;#}
-    {#        float: right;#}
-    {#        position: relative;#}
-    {#        bottom: 10px;#}
-    {#}#}
+
 </style>
 
 {#<container>#}
               <div class="row col-lg-12">
 {#                 <div class="col-sm-9 ">#}
 {#                      <h4 class="text-center">CADASTRE RURAL DE L'OFFICE DU MOYEN BANI</h4> <br/>#}
-                              <div class="map ">
+
+                              <div class="map">
+
                                   {% leaflet_map "map"%}
                               </div>
                                <div>
@@ -35,7 +29,7 @@
 
 {#</container>#}
 {# <script src="{% static 'bootstrap/js/index.js'%}"></script>#}
-{# <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>#}
+ <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
 
  <script>
     $( "p" ).click(function( event ) {
