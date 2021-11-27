@@ -16,20 +16,18 @@
 #python manage.py createsuperuser;
 #python manage.py loaddata  /Users/toure/PycharmProjects/douniyasoba/tmp/$(current +"%Y%m%d_%H:%M:%S")_data.json
 
-
-
 #DATABASE SETTING GEOAPP
 ##! /bin/bash
 #python manage.py dumpdata --format=json contacts > /Users/toure/PycharmProjects/douniyasoba/tmp/$(date +"%Y%m%d_%H:%M:%S")_data.json;
 #psql -U postgresql;
 #drop database geodata;
-create database geodata;
-create user gisconsulting WITH PASSWORD 'password';
-ALTER ROLE gisconsulting SET default_transaction_isolation TO 'read committed';
-ALTER ROLE gisconsulting SET client_encoding TO 'utf8';
-ALTER ROLE gisconsulting SET timezone TO 'UTC';
-GRANT ALL PRIVILEGES ON DATABASE geodata TO gisconsulting;
-\c geodata;
+#create database geodata;
+#create user gisconsulting WITH PASSWORD 'password';
+#ALTER ROLE gisconsulting SET default_transaction_isolation TO 'read committed';
+#ALTER ROLE gisconsulting SET client_encoding TO 'utf8';
+#ALTER ROLE gisconsulting SET timezone TO 'UTC';
+#GRANT ALL PRIVILEGES ON DATABASE geodata TO gisconsulting;
+#\c geodata;
 #create extension postgis;
 #CREATE EXTENSION postgis_topology;
 #\q;

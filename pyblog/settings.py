@@ -18,7 +18,6 @@ DEBUG = True
 # ALLOWED_HOSTS = ['143.198.60.181']
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -78,8 +77,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         # 'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'plateform',
-        'USER': 'myprojectuser',
+        'NAME': 'geodata',
+        'USER': 'gisconsulting',
         'PASSWORD':'password',
         'HOST': '127.0.0.1',
         'PORT': '5432',
