@@ -7,5 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/plateform</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="geodata@localhost" uuid="003f44cc-2130-4906-8bf0-c256d095bb0a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/geodata</jdbc-url>
+    </data-source>
   </component>
 </project>
