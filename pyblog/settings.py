@@ -131,6 +131,8 @@ FORM_RENDERER = 'django.forms.renderers.DjangoTemplates'
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)                    ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
-export =GDAL_LIBRARY_PATH="/Users/toure/Library/Frameworks/GDAL.framework/Versions/2.4/unix/lib/libgdal.dylib"
+# GDAL_LIBRARY_PATH="/Library/Frameworks/GDAL.framework/Versions/3.1/unix/lib/libgdal.dylib"
+GDAL_LIBRARY_PATH="/venv/lib/python3.6/site-packages/osgeo"
 #GEOS_LIBRARY_PATH = "/Users/toure/Library/geos/3.9.1/lib/libgeos_c.dylib"
 # /Library/Frameworks
+# GDAL_LIBRARY_PATH='/Users/me/.pyenv/versions/3.6.5/lib/python3.6/site-packages/django/contrib/gis/gdal/libgdal.py'
