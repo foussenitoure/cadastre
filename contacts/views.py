@@ -27,7 +27,7 @@ from reportlab.platypus import Table
 from django.shortcuts import render
 from django.urls import reverse
 from django.template import context
-from contacts.models import Contact
+# from contacts.models import Contact
 # from .forms import UploadFileForm
 from django.shortcuts import render, redirect
 from django.http import Http404
@@ -39,20 +39,11 @@ from django.http import HttpResponseRedirect
 from django.views.generic import FormView
 from django.template import context
 from django.template import defaulttags
-from contacts.models import Contact, Parcel, Person, Mesure, \
-                            Order, Product, Payment, OrderDetail, Region, Cercle, Commune, Village
-
-
+from contacts.models import Contact, Parcel, Region, Cercle, Commune, Village
 from .forms import SignUpForm, \
                    EditProfileForm, \
                    ContactForm, \
-                   ParcelForm, \
-                   PersonForm,\
-                   MesureForm,\
-                   ProductForm,\
-                   OrderForm, \
-                   PaymentForm, \
-                   OrderDetailForm
+                   ParcelForm
 
 def home(request):
     return render(request, 'contacts/home.html', {})
@@ -185,9 +176,6 @@ def profil_pdf(request,):
 
     # return render(request, 'contacts/profil.html', context)
 
-#
-# def fiche(request):
-#     return None
 
 # ==============================================
 #                  VIEWS CADASTRE
@@ -269,284 +257,6 @@ def change_password(request):
 
     return render(request, 'contacts/change_password.html', context)
 
-
-# ===========================
-#      VIEWS KALALISO
-#          START
-# ===========================
-
-
-def homepage(request):
-    return render(request, 'kalaliso/homepage.html')
-
-
-def person(request):
-    if request.method == 'POST':
-            sta = request.POST.get("status")
-            se = request.POST.get("sex")
-            cat = request.POST.get("category")
-            pre = request.POST.get("prenom")
-            no = request.POST.get("nom")
-            cont = request.POST.get("contact_1")
-            # cin1 = request.POST.get("n_cin")
-            nn = request.POST.get("nina")
-            prf = request.POST.get("profession")
-            nat = request.POST.get("nationalite")
-            # n_f = request.POST.get("n")
-            # ss = request.POST.get("siege_social")
-            # resp = request.POST.get("responsable")
-            # ema = request.POST.get("email")
-            cret = request.POST.get('created_at')
-
-            data = Person(status=sta,
-                          prenom=pre,
-                          nom=no,
-                          sex=se,
-                          category=cat,
-                          contact_1=cont,
-                          # n_cin=cin1,
-                          nina=nn,
-                          profession=prf,
-                          nationalite=nat,
-                          # n=n_f,
-                          # siege_social=ss,
-                          # responsable=resp,
-                          # email=ema,
-                          created_at=cret)
-            data.save()
-
-            return HttpResponseRedirect(reverse('mesure'))
-    else:
-        form = PersonForm()
-    return render(request, 'kalaliso/person.html', {'form': form})
-
-
-def person_detail(request, person_id):
-    qs = Person.objects.all()
-
-    context = {'detail_person': qs,}
-
-    return render(request, 'kalaliso/person_detail.html', context)
-
-
-def product(request):
-
-    if request.method == 'POST':
-            pri = request.POST.get("price")
-            na = request.POST.get("name")
-            cod = request.POST.get("code_product")
-            des = request.POST.get("description")
-            ph = request.POST.get("photo")
-            dat = request.POST.get("create_at")
-
-            data = Product(
-                           price=pri,
-                           name=na,
-                           code_product=cod,
-                           description=des,
-                           photo=ph,
-                           create_at=dat)
-            data.save()
-
-            return HttpResponseRedirect(reverse('order'))
-    else:
-        form = ProductForm()
-    return render(request, 'kalaliso/product.html', {'form': form})
-
-
-def product_detail(request, product_id):
-    qs = Product.objects.all()
-    context = {'product': qs,}
-
-    return render(request, 'kalaliso/product_detail.html', context)
-
-
-def order(request):
-    if request.method == 'POST':
-            ida = request.POST.get("id")
-            cd = request.POST.get("code_order")
-            recep = request.POST.get("reception")
-            creat = request.POST.get("create_at")
-            data = Order(id=ida,
-                         code_order=cd,
-                         reception=recep,
-                         create_at=creat,)
-            data.save()
-
-            return HttpResponseRedirect(reverse('order_detail'))
-    else:
-        form = OrderForm()
-    return render(request, 'kalaliso/order.html', {'form': form})
-
-
-def order_detail(request, order_id):
-    qs = Order.objects.all().order_by(-order)
-
-    context = {'detail_order': qs,}
-
-    return render(request, 'kalaliso/order_detail.html', context)
-
-# def orderdetail(request):
-#     if request.method == 'POST':
-#         ca = request.POST.get("category")
-#         qt = request.POST.get("quantity")
-#         tv = request.POST.get("tva")
-#         rm = request.POST.get("remise")
-#         creat = request.POST.get("create_at")
-#
-#         data = OrderDetail(category=ca,
-#                            remise=rm,
-#                            quantity=qt,
-#                            tva=tv,
-#                            create_at=creat,)
-#
-#         # CODE FOR INSTANCIATION
-#         # form = PartialAuthorForm(request.POST, instance=author)
-#
-#         data.save()
-#         return HttpResponseRedirect(reverse('orderdetail'))
-#     else:
-#         form = OrderDetailForm()
-#     return render(request, 'kalaliso/orderdetail.html', {'form': form})
-
-def orderdetail(request, ):
-    if request.method == 'POST':
-        subm = request.POST.get("submontant")
-        ca = request.POST.get("category")
-        qt = request.POST.get("quantity")
-        # tv = request.POST.get("tva")
-        rm = request.POST.get("remise")
-        creat = request.POST.get("create_at")
-
-        data = OrderDetail(
-                           submontant=subm,
-                           category=ca,
-                           remise=rm,
-                           quantity=qt,
-                           # tva=tv,
-                           create_at=creat,)
-
-        # CODE FOR INSTANCIATION
-        # form = PartialAuthorForm(request.POST, instance=author)
-
-        data.save()
-        return HttpResponseRedirect(reverse('orderdetail'))
-    else:
-        form = OrderDetailForm()
-    return render(request, 'kalaliso/orderdetail.html', {'form': form})
-
-def orderdetail_detail(request, orderdetail_id):
-
-    qs = OrderDetail.objects.all().order_by(Order)
-    context = {'orderdetail': qs, }
-
-    return render(request, 'kalaliso/orderdetail_detail.html', context)
-
-def mesure(request, *args, **kwargs):
-    if request.method == 'POST':
-            id = request.POST.get("id")
-            coud = request.POST.get("coude")
-            epau = request.POST.get("epaule")
-            ma = request.POST.get("manche")
-            to_ma = request.POST.get("tour_manche")
-            tail = request.POST.get("taille")
-            poitr = request.POST.get("pointrine")
-            lo_bo = request.POST.get("longueur_boubou")
-            lo_pa = request.POST.get("longueur_patanlon")
-            fes = request.POST.get("fesse")
-            cei = request.POST.get("ceinture")
-            cui = request.POST.get("cuisse")
-            pat = request.POST.get("patte")
-            cre = request.POST.get('created_at')
-            upd = request.POST.get('update_at')
-            pmid = request.POST.get('person_mesure_id')
-
-            data = Mesure(id=id,
-                          coude=coud,
-                          epaule=epau,
-                          manche=ma,
-                          tour_manche=to_ma,
-                          taille=tail,
-                          poitrine=poitr,
-                          longueur_boubou=lo_bo,
-                          longueur_patanlon=lo_pa,
-                          fesse=fes,
-                          ceinture=cei,
-                          cuisse=cui,
-                          patte=pat,
-                          update_at=upd,
-                          created_at=cre,
-                          person_mesure_id=pmid,)
-            data.save()
-
-            return HttpResponseRedirect(reverse('Order'))
-    else:
-       form = MesureForm()
-    return render(request, 'kalaliso/mesure.html', {'form': form})
-
-# research for OVER STACK FLOW this Bug
-
-# response = wrapped_callback(request, *callback_args, **callback_kwargs)
-
-def mesure_detail(request, mesure_id):
-    qs = Mesure.objects.all()
-
-    context = {'detail_mesure': qs,}
-
-    return render(request, 'kalaliso/mesure_detail.html', context)
-
-
-def payment(request,):
-        if request.method == 'POST':
-
-            rm = request.POST.get("remise")
-            tv = request.POST.get("tva")
-            mt = request.POST.get("montant_total")
-            rd = request.POST.get("rendez_vous")
-            lv = request.POST.get("livre")
-            creat = request.POST.get("create_at")
-            data = Payment(
-                           remise=rm,
-                           tva=tv,
-                           montant_total=mt,
-                           rendez_vous=rd,
-                           livre=lv,
-                           create_at=creat,)
-            data.save()
-            return HttpResponseRedirect(reverse('Order'))
-        else:
-            form = PaymentForm()
-        return render(request, 'kalaliso/payment.html', {'form': form})
-
-def payment_detail(request, payment_id):
-    qs = Payment.objects.all()
-
-    context = {'detail_payment': qs, }
-
-    return render(request, 'kalaliso/payment_detail.html', context)
-
-
-# ===========================
-#      VIEWS KALALISO
-#          END
-# ===========================
-
-
-
-def member(request):
-    
-    return None
-
-
-def cotisation(request):
-    return None
-
-
-
-# ===========================
-#      VIEWS LOCALISATION
-#          STARTING
-# ===========================
 def region(request):
     qs = Region.objects.all()
     return render(region, 'kalaliso/region.html')
@@ -568,6 +278,6 @@ def village(request):
     return None
 
 # ===========================
-#      VIEWS LOCALISATION
+#      VIEWS KALALISO
 #          END
 # ===========================
