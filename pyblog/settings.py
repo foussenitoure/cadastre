@@ -108,17 +108,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
-# LEAFLET_CONFIG = {
+LEAFLET_CONFIG = {
 
 # 'SPATIAL_EXTENT': (11.22, -4.16,  13.05,  -7.00),
 
-# 'DEFAULT_CENTER': (13.22, -5.16),
-# 'DEFAULT_ZOOM': 7,
-# 'MIN_ZOOM': 3,
-# 'MAX_ZOOM': 1,
-# 'DEFAULT_PRECISION': 6,
+'DEFAULT_CENTER': (13.22, -5.16),
+'DEFAULT_ZOOM': 7,
+'MIN_ZOOM': 3,
+'MAX_ZOOM': 1,
+'DEFAULT_PRECISION': 6,
 
-# }
+}
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
