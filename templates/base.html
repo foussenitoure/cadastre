@@ -282,6 +282,9 @@
         .addTo(map)
         .bindPopup('<h1>Marker</h1><p>This is the marker text</p>');
 
+    var scale = L.control.scale(); // Creating scale control
+         scale.addTo(map); // Adding scale control to the map
+
     // GEOSERVER REQUEST
 
       var wmsLayer = L.Geoserver.wms("http://localhost:8080/geoserver/wms", {
