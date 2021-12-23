@@ -105,6 +105,13 @@ ALTER ROLE myprojectuser SET client_encoding TO 'utf8';
 ALTER ROLE myprojectuser SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE plateform TO myprojectuser;
 
+<!--DATABASE OMB ON POSTGRES ....-->
+create database omb;
+create user myprojectuser WITH PASSWORD 'password';
+ALTER ROLE myprojectuser SET default_transaction_isolation TO 'read committed';
+ALTER ROLE myprojectuser SET client_encoding TO 'utf8';
+ALTER ROLE myprojectuser SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE omb TO myprojectuser;
 
 how create account with django 1.11 https://youtu.be/V1DOQyB5LXA
 
@@ -118,12 +125,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-GDAL_LIBRARY_PATH='/Users/me/.pyenv/versions/3.6.5/lib/python3.6/site-packages/django/contrib/gis/gdal/libgdal.py'
-GDAL_LIBRARY_PATH='/venv/lib/python3.6/site-packages/django/contrib/gis/gdal/libgdal.py'
-GDAL_LIBRARY_PATH='/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/contrib/gis/gdal/libgdal.py'
-/Users/foussenytoure/Documents/ProjectPycharm/douniyasoba /venv/lib/python3.6/site-packages/django/contrib/gis/gdal/libgdal.py
-/Users/foussenytoure/Documents/ProjectPycharm/douniyasoba
-/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/contrib/gis/gdal
+
 class ContactForm(forms.ModelForm):
 
     STATUS = (
