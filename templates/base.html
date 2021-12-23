@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<body lang="en">
+<!--<body lang="en">-->
     <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,26 +25,15 @@
             background-color: whitesmoke;
         }
         .container{
-            padding: 150px;
-            background-color: #00B000;
-            height: 450px;
-            width: 1000px;
+            padding: 50px;
+            /*background-color: #00B000;*/
+            /*height: 450px;*/
+            /*width: 1000px;*/
             float: right;
             position: relative;
-            bottom: 450px;
+            bottom: 440px;
           }
-    /*#map {*/
-	/*overflow: hidden;*/
-	/*height: 600%;*/
-	/*width: 1200px;*/
-	/*}*/
 
-        {#footer{#}
-            {#background-color: darkgrey;#}
-            {#padding-top: 2%;#}
-            {#margin-bottom: auto;#}
-
-        {#}#}
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -222,11 +211,13 @@
 
 </main>
 </div>
+  <body>
   <div class=".col-md-8">
     <div class=container>
-
+    <div class="leaflet-container">
               {% block content %}
               {% endblock %}<br />
+    </div>
     </div>
   </div>
 </div>
