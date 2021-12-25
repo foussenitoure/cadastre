@@ -3,13 +3,15 @@
 {% load crispy_forms_filters %}
 {% block content %}
 
-    <h2>This is Home page </h2>
+    <h2  class="text-center">This is Home page </h2>
     {% if user.is_authenticated %}
-
-            <p> Name: {{ user.first_name }} {{ user.last_name }} </p>
-            <p> Username: {{ user.username }} </p>
-            <p> Email: {{ user.email }} </p>
-
+<fieldset class="border-bottom " >
+            <div class="text-center">
+            <h5> Name: {{ user.first_name }} {{ user.last_name }} </h5>
+            <h5> Username: {{ user.username }} </h5>
+            <h5> Email: {{ user.email }} </h5>
+            </div>
+</fieldset>
         {% endif %}
 
  {% endblock %}

@@ -8,19 +8,19 @@
 {#       <link rel="stylesheet" href="{% static 'bootstrap/css/style.css' %}">#}
 <style>
     .leaflet-container {  /* all maps */
-        width:  1050px;
+        width:  1000px;
         height: 600px;
-        border-color: #1b1b1b;
-        margin-top: auto;
+        /*border-color: #1b1b1b;*/
+        /*margin-top: auto;*/
         margin-left: 50px;
     }
 
 </style>
 
 <!--{#<container>#}-->
-              <div class="row col-lg-12">
-{#                 <div class="col-sm-9 ">#}
-{#                      <h4 class="text-center">CADASTRE RURAL DE L'OFFICE DU MOYEN BANI</h4> <br/>#}
+              <div class="row col-12">
+<!--                 <div class="col-sm-9 ">-->
+                      <h4 class="text-center">CADASTRE RURAL DE L'OFFICE DU MOYEN BANI</h4> <br/>
                               <div class="map ">
                                   {% leaflet_map "map"%}
                               </div>
@@ -28,7 +28,7 @@
                                     {% leaflet_js %}
                                     {% leaflet_css %}
                                </div>
-{#                 </div>#}
+<!--{#                 </div>#}-->
                </div>
 
 <!--{#</container>#}-->

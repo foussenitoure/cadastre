@@ -8,9 +8,9 @@
             <meta name="generator" content="Hugo 0.84.0">
             <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
             <title>CADASTRE RURAL{% block title %}{% endblock %}</title>
-{#          <link rel="stylesheet" href="{% static 'leaflet/leaflet.css' %}">#}
+<!--{#          <link rel="stylesheet" href="{% static 'leaflet/leaflet.css' %}">#}-->
             <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-            <link rel="stylesheet" href="{% static 'leaflet.css'%}">
+<!--            <link rel="stylesheet" href="{% static 'leaflet.css'%}">-->
 {#          <link rel="stylesheet" href="{% static 'css/bootstrap.css/bootstrap.min.css'%}">#}
             <link rel="stylesheet" href="{% static 'bootstrap/css/style.css' %}">
 
@@ -23,7 +23,6 @@
         }
         body{
             background-color: whitesmoke;
-
         }
         .container{
             padding: 50px;
@@ -31,6 +30,7 @@
             float: right;
             position: relative;
             bottom: 650px;
+            height: 100px;
           }
 
         .bd-placeholder-img {
@@ -62,6 +62,7 @@
                             <li class="nav-item {% if item.active %}active{% endif %}">
                                 <a class="nav-link" href="{{ item.url }}">{{ item.name }}</a>
                             </li>
+                  </ul>
                         {% endfor %}
 
                       <ul class="navbar-nav ml-auto">
@@ -212,6 +213,11 @@
     <div class="leaflet-container">
               {% block content %}
               {% endblock %}<br />
+
+<!--        <div id="input">-->
+
+<!--             <img src="http://localhost:8080/geoserver/cadastre/wms?service=WMS&version=1.1.0&request=GetMap&layers=cadastre%3ACasier_OMB_Ens&bbox=247334.0557001345%2C1457114.496195676%2C308213.7014412415%2C1481782.57048504&width=768&height=330&srs=EPSG%3A32630&styles=&format=application/openlayersb">-->
+<!--        </div>-->
     </div>
     </div>
   </div>
@@ -224,11 +230,11 @@
     </div>
 </footer>
 
-       <script src="{% static 'leaflet.js'%}"></script>
+<!--       <script src="{% static 'leaflet.js'%}"></script>-->
        <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
 {#     <script src="{% static 'bootstrap/js/index.js'%}"></script>#}
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-{#     <script src="{% static 'L.Geoserver.js'%}"></script>#}
+<!--{#     <script src="{% static 'L.Geoserver.js'%}"></script>#}-->
 </html>
 
 
@@ -284,6 +290,22 @@
 
     var scale = L.control.scale(); // Creating scale control
          scale.addTo(map); // Adding scale control to the map
+
+     map.on("click", function(e){
+            new L.Marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+         })
+             // Creating latlng object
+         // var latlngs = [
+         //    [17.385044, 78.486671],
+         //    [16.506174, 80.648015],
+         //    [17.000538, 81.804034],
+         //    [17.686816, 83.218482]
+         // ];
+         // // Creating a poly line
+         // var polyline = L.polyline(latlngs, {color: 'red'});
+         //
+         // // Adding to poly line to map
+         // polyline.addTo(map);
 
     // GEOSERVER REQUEST
 
