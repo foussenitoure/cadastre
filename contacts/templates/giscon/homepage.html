@@ -3,27 +3,9 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-<!--{% block content %}-->
+{% block content %}
 
-
-
-<!--<div class="row-cols-4 offset-sm-1">-->
-<!--     <a href="{% url 'upload' %}"> Upload Image Here</a><br />-->
-<!--       <div class="album py-5 bg-light">-->
-
-<!--                 {% for image in images %}-->
-<!--                             <p>{{ image.title }}</p>-->
-<!--                             <p>{{ image.tags }}</p>-->
-<!--                             <p>{{ image.image }}</p>-->
-<!--                             <p>{{ image.type }}</p>-->
-<!--                             <p>{{ image.category }}</p>-->
-<!--                             <p>{{ image.genre }}</p>}-->
-<!--                        <img src="{{ image.url }}" alt="{{ image.title }}" class="card-img-top">-->
-<!--                 {% endfor %}-->
-
-<!--    </div>-->
-<!--</div>-->
-<!--{% endblock %}-->
+{% endblock %}
 
 
 
@@ -51,11 +33,7 @@
 <!--</div>-->
 
 
-<!--    <form action="{% url 'homepage' %}" method="post" enctype="multipart/form-data ">-->
-<!--    {% csrf_token %}-->
-<!--    {{form.as_p}}-->
-<!--        <button type="submit" class="btn btn-lg btn-success">Upload</button>-->
-<!--    </form>-->
+
 
 <!--    {% if obj %}-->
 <!--    <h4> Successfully upload : {{img_obj.nom}}</h4>-->
