@@ -32,11 +32,18 @@
         .container{
             padding: 10px;
             /*{#background-color: #00B000;#}*/
-            height: 85px;
             width: 1000px;
             float: right;
             position: relative;
             bottom: 550px;
+          }
+      footer{
+            padding: 10px;
+            background-color: gray;
+            height: 650px;
+
+
+
           }
 
        .img-thumbnail{
@@ -69,11 +76,6 @@
         }
       }
 
-      /*@media (min-width: 768px) {*/
-      /*  .bd-placeholder-img-lg {*/
-      /*    font-size: 3.5rem;*/
-      /*  }*/
-      /*}*/
     </style>
     </head>
 
@@ -111,10 +113,6 @@
 
                           <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
                        </ul>
-
-<!--                      <ul class="navbar-nav ml-auto">-->
-
-<!--                      </ul>-->
                 </div>
              </nav>
            </div>
@@ -182,21 +180,14 @@
 </svg>
 
 <div class="row col-lg-12">
-<div class=".col-md-4">
-
-</div>
-    <div >
-
          <div class=container>
                 {% block content %}
                 {% endblock %}<br />
           </div>
-      </div>
-
 </div>
 <footer><br/><hr>
     <div class="text-center">
-        <small>Copyright @ 2018-2021 GisConsulting4</small>
+        <small style="color: white">Copyright @ 2018-2021 GisConsulting4</small>
     </div>
 </footer>
 </body>
