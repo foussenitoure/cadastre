@@ -15,22 +15,14 @@ from .models import *
 
 
 # ==============================================
-#                  FORM KALALISO
+#                  FORM GISCONSULTING4
 #                        START
 # ==============================================
-class ImageForm(forms.Form):
-    class Meta:
-        model = Image
-        fields = ['title', 'slug','tags','type', 'category', 'genre', 'image', ]
-        exclude = ['tags']
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
 
-class PersonForm(forms.Form):
+class PostForm(forms.Form):
     class Meta:
-        model = Person
+        model = Post
         fields = ['__all__']
         # exclude = ('domicile', 'email', 'alias', 'type_tailleur', 'code_person','photo', 'profession', 'responsable', 'numero_reference', 'created_at')
 
@@ -51,59 +43,8 @@ class PersonForm(forms.Form):
                 InlineRadios('category'),
                 'contact_1', )
 
-class MesureForm(forms.Form):
-    class Meta:
-        model = Mesure
-        fields = '__all__'
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
-
-
-class ProductForm(forms.Form):
-    class Meta:
-         model = Product
-         fields = '__all__'
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
-
-
-class OrderForm(forms.Form):
-    class Meta:
-        models = Order
-        fields = '__all__'
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
-
-
-class Order_ItemsForm(forms.Form):
-    class Meta:
-        models = Order_Items
-        fields = '__all__'
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
-
-
-
-
-class PaymentForm(forms.Form):
-    class Meta:
-        models = Payment
-        fields = '__all__'
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
-
 # ==============================================
-#                  FORM KALALISO
+#                  FORM GISCONSULTING4
 #                        END
 # ==============================================
 

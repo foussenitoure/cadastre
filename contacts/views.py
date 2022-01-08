@@ -12,7 +12,6 @@ from  .models import *
 from .forms import *
 
 
-
 def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -26,7 +25,7 @@ def user_login(request):
             messages.success(request, ('Error you can try again !'))
             return redirect('login')
     else:
-        return render(request, 'kalaliso/login.html', {})
+        return render(request, 'giscon/login.html', {})
 
 
 def logout_user(request):
@@ -49,7 +48,7 @@ def register_user(request):
     else:
         form = SignUpForm(request.POST)
     context = {'form': form}
-    return render(request, 'kalaliso/register.html', context)
+    return render(request, 'giscon/register.html', context)
 
 
 def edit_profile(request):
@@ -62,7 +61,7 @@ def edit_profile(request):
     else:
         form = EditProfileForm(instance=request.user)
     context = {'form': form}
-    return render(request, 'kalaliso/edit_profile.html', context)
+    return render(request, 'giscon/edit_profile.html', context)
 
 
 def change_password(request):
@@ -72,348 +71,68 @@ def change_password(request):
             form.save()
             update_session_auth_hash(request, form.user)
             messages.success(request,('You Have Edited Your Password...'))
-            return redirect('kalaliso/homepage.html')
+            return redirect('giscon/homepage.html')
     else:
         form = PasswordChangeForm(user=request.user)
 
     context = {'form': form}
 
-    return render(request, 'kalaliso/change_password.html', context)
+    return render(request, 'giscon/change_password.html', context)
 
 
 # ===========================
-#      VIEWS KALALISO
+#      VIEWS GISCONSULTING4
 #          START
 # ===========================
 # def CreatePostView(CreateView):
 #     model = Post
 #     form_class = PostForm
-#     template_name = 'kalaliso/post.html'
-#     # success_url = reverse_lazy ('kalaliso/homepage.html')
-#     return render(CreateView, 'kalaliso/post.html')
+#     template_name = 'giscon/post.html'
+#     # success_url = reverse_lazy ('giscon/homepage.html')
+#     return render(CreateView, 'giscon/post.html')
 #
 # def HomePageView(ListView):
 #     qp = Post.objects.all()
 #     model = Post
 #     context = { 'homepage': qp}
-#     # template_name =  'kalaliso/homepage.html'
-#     return render(ListView, 'kalaliso/homepage.html', context)
+#     # template_name =  'giscon/homepage.html'
+#     return render(ListView, 'giscon/homepage.html', context)
 
 
 
 
-#     global image
-#     if request.method == "POST":
-#         form=PostForm(data=request.POST, files=request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             obj=form.instance
-#             return render(request,'kalaliso/homepage.html', {"obj":obj})
-#     else:
-#        form=PostForm()
-#        image=Post.objects.all()
-#     return render(request, 'kalaliso/homepage.html', {"image":image, "form":form})
 
 
-def homepage(request,):
-    return render(request, 'kalaliso/homepage.html', {})
+def post(request,):
+    return render(request, 'giscon/homepage.html', {})
 
-
-def vuesimg(request,):
-    images = Image.objects.all().order_by('Date')
-    # images = Product_image.objects.all()
-    context = {'images':images}
-    # return HttpResponseRedirect(reverse('kalaliso/detail_image.html', args=[pk]))
-    return redirect('kalaliso/detail_image.html')
-# return HttpResponseRedirect(reverse('app_blog:blog_detail',args=[pk]))
-
-
-def image_upload_view(request, **kwargs):
-    f = ImageForm
-    if request.method == "POST" or None:
-        f=ImageForm(request.POST, request.FILES)
-        if f.is_valid():
-            f.save()
-            img_obj=f.instance
-            return render(request, 'kalaliso/index.html', {'form': f, 'img_obj': img_obj})
-        else:
-            form = ImageForm()
-    return render(request, 'kalaliso/index.html', {'form': f})
-
-
-
-def person(request):
-
-    if request.method == 'POST' or None:
-            sta = request.POST.get("status")
-            ig = request.POST.get("image")
-            gre = request.POST.get("genre")
-            usr = request.POST.get("user_id")
-            cat = request.POST.get("category")
-            pre = request.POST.get("prenom")
-            no = request.POST.get("nom")
-            cont = request.POST.get("contact_1")
-            cont2 = request.POST.get("contact_2")
-            cin1 = request.POST.get("n_cin")
-            nn = request.POST.get("nina")
-            prf = request.POST.get("profession")
-            c_p = request.POST.get("code_person")
-            nat = request.POST.get("nationalite")
-            dom = request.POST.get("domicile")
-            nur = request.POST.get("numero_reference")
-            tutl = request.POST.get("tutuelle")
-            telp_fix = request.POST.get("telephonique_fix")
-            n_f = request.POST.get("n")
-            al = request.POST.get("alias")
-            ss = request.POST.get("siege_social")
-            resp = request.POST.get("responsable")
-            ema = request.POST.get("email")
-            cret = request.POST.get('created_at')
-
-            data = Person(status=sta, prenom=pre, user_id=usr, nom=no,
-                          genre=gre, contact_2=cont2, alias=al, category=cat, contact_1=cont,code_person=c_p,
-                          n_cin=cin1, telephonique_fix=telp_fix, numero_reference=nur,
-                          tutuelle=tutl, domicile=dom, nina=nn, profession=prf, nationalite=nat,
-                          n=n_f,  siege_social=ss, responsable=resp, email=ema,
-                          created_at=cret, image=ig)
-            data.save()
-            return HttpResponseRedirect(reverse('mesure'))
-    else:
-         form=PersonForm()
-    return render(request, 'kalaliso/person.html', {'form': form})
-
-
-def person_detail(request, person_id):
-    qs = Person.objects.all()
-
-    context = {'detail_person': qs,}
-
-    return render(request, 'kalaliso/person_detail.html', context)
-
-
-def product(request):
-
-    if request.method == 'POST':
-            pri = request.POST.get("price")
-            na = request.POST.get("name")
-            cod = request.POST.get("code_product")
-            des = request.POST.get("description")
-            ph = request.POST.get("photo")
-            dat = request.POST.get("create_at")
-
-            data = Product(
-                           price=pri,
-                           name=na,
-                           code_product=cod,
-                           description=des,
-                           photo=ph,
-                           create_at=dat)
-            data.save()
-
-            return HttpResponseRedirect(reverse('order'))
-    else:
-        form = ProductForm()
-    return render(request, 'kalaliso/product.html', {'form': form})
-
-
-def product_detail(request, product_id):
-    qs = Product.objects.all()
-    context = {'product': qs,}
-
-    return render(request, 'kalaliso/product_detail.html', context)
-
-
-def order(request):
-    if request.method == 'POST':
-            ida = request.POST.get("id")
-            cd = request.POST.get("code_order")
-            recep = request.POST.get("reception")
-            creat = request.POST.get("create_at")
-            data = Order(id=ida,
-                         code_order=cd,
-                         reception=recep,
-                         create_at=creat,)
-            data.save()
-
-            return HttpResponseRedirect(reverse('order_detail'))
-    else:
-        form = OrderForm()
-    return render(request, 'kalaliso/order.html', {'form': form})
-
-
-def order_items(request, order_id):
-    qs = Order.objects.all().order_by()
-
-    context = {'order_items': qs,}
-
-    return render(request, 'kalaliso/order_items.html', context)
-
-# def orderdetail(request):
-#     if request.method == 'POST':
-#         ca = request.POST.get("category")
-#         qt = request.POST.get("quantity")
-#         tv = request.POST.get("tva")
-#         rm = request.POST.get("remise")
-#         creat = request.POST.get("create_at")
 #
-#         data = OrderDetail(category=ca,
-#                            remise=rm,
-#                            quantity=qt,
-#                            tva=tv,
-#                            create_at=creat,)
+# def vuesimg(request,):
+#     images = Image.objects.all().order_by('Date')
+#     # images = Product_image.objects.all()
+#     context = {'images':images}
+#     # return HttpResponseRedirect(reverse('giscon/detail_image.html', args=[pk]))
+#     return redirect('giscon/detail_image.html')
+# # return HttpResponseRedirect(reverse('app_blog:blog_detail',args=[pk]))
 #
-#         # CODE FOR INSTANCIATION
-#         # form = PartialAuthorForm(request.POST, instance=author)
 #
-#         data.save()
-#         return HttpResponseRedirect(reverse('orderdetail'))
-#     else:
-#         form = OrderDetailForm()
-#     return render(request, 'kalaliso/orderdetail.html', {'form': form})
-
-def order_items(request, ):
-    if request.method == 'POST':
-        subm = request.POST.get("submontant")
-        ca = request.POST.get("category")
-        qt = request.POST.get("quantity")
-        # tv = request.POST.get("tva")
-        rm = request.POST.get("remise")
-        creat = request.POST.get("create_at")
-
-        data = Order_Items(
-                           submontant=subm,
-                           category=ca,
-                           remise=rm,
-                           quantity=qt,
-                           # tva=tv,
-                           create_at=creat,)
-
-        # CODE FOR INSTANCIATION
-        # form = PartialAuthorForm(request.POST, instance=author)
-
-        data.save()
-        return HttpResponseRedirect(reverse('order_items'))
-    else:
-        form = Order_ItemsForm()
-    return render(request, 'kalaliso/order_items.html', {'form': form})
-
-def orderdetail_detail(request, orderdetail_id):
-
-    qs = Order_Items.objects.all().order_by(Order)
-    context = {'orderdetail': qs, }
-
-    return render(request, 'kalaliso/orderdetail_detail.html', context)
-
-def mesure(request, *args, **kwargs):
-    if request.method == 'POST':
-            id = request.POST.get("id")
-            coud = request.POST.get("coude")
-            epau = request.POST.get("epaule")
-            ma = request.POST.get("manche")
-            to_ma = request.POST.get("tour_manche")
-            tail = request.POST.get("taille")
-            poitr = request.POST.get("pointrine")
-            lo_bo = request.POST.get("longueur_boubou")
-            lo_pa = request.POST.get("longueur_patanlon")
-            fes = request.POST.get("fesse")
-            cei = request.POST.get("ceinture")
-            cui = request.POST.get("cuisse")
-            pat = request.POST.get("patte")
-            cre = request.POST.get('created_at')
-            upd = request.POST.get('update_at')
-            pmid = request.POST.get('person_mesure_id')
-
-            data = Mesure(id=id,
-                          coude=coud,
-                          epaule=epau,
-                          manche=ma,
-                          tour_manche=to_ma,
-                          taille=tail,
-                          poitrine=poitr,
-                          longueur_boubou=lo_bo,
-                          longueur_patanlon=lo_pa,
-                          fesse=fes,
-                          ceinture=cei,
-                          cuisse=cui,
-                          patte=pat,
-                          update_at=upd,
-                          created_at=cre,
-                          person_mesure_id=pmid,)
-            data.save()
-
-            return HttpResponseRedirect(reverse('Order'))
-    else:
-       form = MesureForm()
-    return render(request, 'kalaliso/mesure.html', {'form': form})
-
-# research for OVER STACK FLOW this Bug
-
-# response = wrapped_callback(request, *callback_args, **callback_kwargs)
-
-def mesure_detail(request, mesure_id):
-    qs = Mesure.objects.all()
-
-    context = {'detail_mesure': qs,}
-
-    return render(request, 'kalaliso/mesure_detail.html', context)
+# def image_upload_view(request, **kwargs):
+#     f = ImageForm
+#     if request.method == "POST" or None:
+#         f=ImageForm(request.POST, request.FILES)
+#         if f.is_valid():
+#             f.save()
+#             img_obj=f.instance
+#             return render(request, 'giscon/index.html', {'form': f, 'img_obj': img_obj})
+#         else:
+#             form = ImageForm()
+#     return render(request, 'giscon/index.html', {'form': f})
 
 
-def payment(request,):
-        if request.method == 'POST':
 
-            rm = request.POST.get("remise")
-            tv = request.POST.get("tva")
-            mt = request.POST.get("montant_total")
-            rd = request.POST.get("rendez_vous")
-            lv = request.POST.get("livre")
-            creat = request.POST.get("create_at")
-            data = Payment(
-                           remise=rm,
-                           tva=tv,
-                           montant_total=mt,
-                           rendez_vous=rd,
-                           livre=lv,
-                           create_at=creat,)
-            data.save()
-            return HttpResponseRedirect(reverse('Order'))
-        else:
-            form = PaymentForm()
-        return render(request, 'kalaliso/payment.html', {'form': form})
-
-def payment_detail(request, payment_id):
-    qs = Payment.objects.all()
-
-    context = {'detail_payment': qs, }
-
-    return render(request, 'kalaliso/payment_detail.html', context)
-
-def region(request):
-    qs = Region.objects.all()
-    return render(region, 'kalaliso/region.html')
-
-
-def commune(request):
-    return None
-
-
-def arrondissement(request):
-    return None
-
-
-def cercle(request):
-    return None
-
-
-def village(request):
-    return None
-
-
-def profile(request):
-
-    return render(request, 'kalaliso/profil.html')
 
 # ===========================
-#      VIEWS KALALISO
+#      VIEWS GISCONSULTING4
 #          END
 # ===========================
 

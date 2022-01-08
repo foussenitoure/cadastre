@@ -1,5 +1,5 @@
 from pathlib import Path
-# from django.contrib.gis.db.backends.XXX
+# from django.contrib.giscon.db.backends.XXX
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Our the app
-    'django.contrib.gis',
+    'django.contrib.giscon',
     'leaflet',
     'contacts',
     # 'bootstrap module',
@@ -75,8 +75,8 @@ WSGI_APPLICATION = 'pyblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'plateform',
+        'ENGINE': 'django.contrib.giscon.db.backends.postgis',
+        'NAME': 'giscon',
         'USER': 'myprojectuser',
         'PASSWORD':'password',
         'HOST': '127.0.0.1',
