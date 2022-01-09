@@ -23,7 +23,7 @@ class Post(models.Model):
         ('BTP',        'BTP'),
         ('ARTISANAT', 'ARTISANAT'),)
 
-    post       = models.TextField(max_length=5000, blank=True, verbose_name='post')
+    post       = models.TextField(max_length=10000, blank=True, verbose_name='post')
     title      = models.CharField(max_length=200, blank=True, verbose_name='title')
     name_dom   = models.CharField(max_length=10, choices=DOMAINE, null=True, blank=True,)
     address    = models.ForeignKey('Address', on_delete=models.CASCADE, verbose_name='Address')
@@ -37,7 +37,7 @@ class Address(models.Model):
     id         = models.AutoField(primary_key=True)
     email      = models.EmailField(max_length=100, null=True, blank=True)
     domicile   = models.CharField(max_length=100, null=True, blank=True, default='')
-    phone1     = models.IntegerField(max_length=8, null=True, blank=True)
+    phone1     = models.CharField(max_length=8,null=True, blank=True)
     phone2     = models.CharField(max_length=8, null=True, blank=True)
     phone_fix  = models.CharField(max_length=15, null=True, blank=True)
 
