@@ -3,9 +3,39 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-{% block content %}
 
+<style>
+    .leaflet-container {  /* all maps */
+        width:  900px;
+        height: 600px;
+        /*border-color: #1b1b1b;*/
+        /*margin-top: auto;*/
+        margin-left: 10px;
+    }
+
+</style>
+
+{% block content %}
+              <div class="row col-12">
+                      <h4 class="text-center">MAPS</h4>
+                              <div class="map">
+                                  {% leaflet_map "map"%}
+                              </div>
+                               <div>
+                                    {% leaflet_js %}
+                                    {% leaflet_css %}
+                               </div>
+               </div>
 {% endblock %}
+
+ <script>
+    $( "p" ).click(function( event ) {
+      alert("Your book is overdue.");// This is my case irrigation
+    });
+
+</script>
+
+
 
 
 
