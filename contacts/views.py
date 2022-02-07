@@ -17,7 +17,6 @@ from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter, A5
 from reportlab.pdfgen import canvas
 
-
 from django.core.serializers  import serialize
 # import genHeaderTable
 # import genBodyTable
@@ -115,7 +114,7 @@ def parcel(request):
     if request.method == 'POST':
         nat = request.POST.get('nature')
         sup = request.POST.get('superficie')
-        pe = request.POST.get('perimeter')
+        pe  = request.POST.get('perimeter')
         cod = request.POST.get('code')
         cre = request.POST.get('created_at')
         upd = request.POST.get('update_at')
