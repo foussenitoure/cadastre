@@ -48,7 +48,6 @@ from .forms import SignUpForm, \
 
 
 
-
 def home(request):
     return render(request, 'contacts/home.html', {})
 
