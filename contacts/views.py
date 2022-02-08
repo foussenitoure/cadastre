@@ -40,7 +40,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import FormView
 from django.template import context
 from django.template import defaulttags
-from contacts.models import Contact, Parcel, Region, Cercle, Commune, Village
+from .models import Contact, Parcel, Region, Cercle, Commune, Village
 from .forms import SignUpForm, \
                    EditProfileForm, \
                    ContactForm, \
@@ -207,7 +207,7 @@ def user_login(request):
             messages.success(request, ('Error you can try again !'))
             return redirect('login')
     else:
-        return render(request, 'contacts/login.html', {})
+        return render(request, 'account/login.html', {})
 
 
 def logout_user(request):
@@ -230,7 +230,7 @@ def register_user(request):
     else:
         form = SignUpForm(request.POST)
     context = {'form': form}
-    return render(request, 'contacts/register.html', context)
+    return render(request, 'account/register.html', context)
 
 
 def edit_profile(request):
@@ -243,7 +243,7 @@ def edit_profile(request):
     else:
         form = EditProfileForm(instance=request.user)
         context = {'form': form}
-    return render(request, 'contacts/edit_profile.html', context)
+    return render(request, 'account/edit_profile.html', context)
 
 
 def change_password(request):
@@ -259,7 +259,7 @@ def change_password(request):
 
     context = {'form': form}
 
-    return render(request, 'contacts/change_password.html', context)
+    return render(request, 'account/change_password.html', context)
 
 def region(request):
     qs = Region.objects.all()
