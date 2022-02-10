@@ -1,31 +1,10 @@
-# import hashlib
-from math import sin, cos, tan, pi, ceil
-# from reportlab import rl_config, ascii, xrange
-from reportlab.pdfbase import pdfutils
-from reportlab.pdfbase import pdfdoc
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfgen  import pdfgeom, pathobject
-from reportlab.lib.utils import import_zlib, ImageReader, isSeq, isStr, isUnicode, _digester
-from reportlab.lib.rl_accel import fp_str, escapePDF
-from reportlab.lib.boxstuff import aspectRatioFix
-from reportlab.pdfgen import canvas
-from reportlab.platypus import Table
+
 from django.http import FileResponse
 import io
 # import reportlab.pdfgen
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter, A5
 from reportlab.pdfgen import canvas
-
-from django.core.serializers  import serialize
-# import genHeaderTable
-# import genBodyTable
-# import genFooterTable
-# import reportlab genFooterTable, genBodyTable, genHeaderTable
-# from reportlab.lib.pagesizes import A4
-from reportlab.platypus import Table
-# from .forms import UploadFileForm
-from django.shortcuts import render
 from django.urls import reverse
 from django.template import context
 # from contacts.models import Contact
