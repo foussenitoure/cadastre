@@ -27,7 +27,7 @@ class Post(models.Model):
     title      = models.CharField(max_length=200, blank=True, verbose_name='title')
     name_dom   = models.CharField(max_length=10, choices=DOMAINE, null=True, blank=True,)
     address    = models.ForeignKey('Address', on_delete=models.CASCADE, verbose_name='Address')
-    image      = models.ImageField(upload_to='posted', null=True, blank=True, verbose_name='Photo_commande')
+    image      = models.ImageField(upload_to='images/', null=True, blank=True, verbose_name='Photo_commande')
     created_at = models.DateField(auto_now=True)
 
     def __str__(self):
