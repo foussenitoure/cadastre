@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 {% load static %}
 
 <body lang="en">
@@ -10,7 +9,7 @@
             <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
             <meta name="generator" content="Hugo 0.84.0">
             <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
-            <title class="offset-1">GIS CONSULTING 4{% block title %}
+            <title class="offset-0">GIS CONSULTING 4{% block title %}
                 {% endblock %}
             </title>
             <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
@@ -40,10 +39,7 @@
       footer{
             padding: 10px;
             background-color: gray;
-            height: 500px;
-
-
-
+            height: 200px;
           }
 
     </style>
@@ -58,23 +54,14 @@
                     <span class="navbar-toggler-icon"></span>
                   </button>
 
-            <div class="collapse navbar-collapse" id="navbar">
+               <div class="collapse navbar-collapse" id="navbar">
 
                     <a href="{% url 'homepage' %}" class="nav-link">
-                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                   Homepage
                     </a>
 
-
                     <a href="{% url 'post' %}" class="nav-link link-dark">
-                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
                       Posted
-                    </a>
-
-
-                    <a href="{% url 'address' %}" class="nav-link link-dark">
-                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-                      Address
                     </a>
 
                 </div>

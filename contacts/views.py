@@ -17,12 +17,11 @@ def homepage(request,):
     return render(request, 'giscon/homepage.html', {})
 
 def post(request):
+    contact = Post.objects.all()
+    context = { 'contact': contact}
 
-    return render(request, 'giscon/post.html')
+    return render(request, 'giscon/post.html', context)
 
-def address(request):
-
-    return render(request, 'giscon/address.html')
 
 
 # def user_login(request):

@@ -23,26 +23,34 @@ class Post(models.Model):
         ('BTP',        'BTP'),
         ('ARTISANAT', 'ARTISANAT'),)
 
-    post       = models.TextField(max_length=10000, blank=True, verbose_name='post')
-    title      = models.CharField(max_length=200, blank=True, verbose_name='title')
-    name_dom   = models.CharField(max_length=10, choices=DOMAINE, null=True, blank=True,)
-    address    = models.ForeignKey('Address', on_delete=models.CASCADE, verbose_name='Address')
-    image      = models.ImageField(upload_to='images/', null=True, blank=True, verbose_name='Photo_commande')
-    created_at = models.DateField(auto_now=True)
+    STATUS = (
+        (0, "Draft"),
+        (1, "Publish")
+    )
 
-    def __str__(self):
-        return '{}'.format(self.title)
-
-class Address(models.Model):
-    id         = models.AutoField(primary_key=True)
+    content    = models.TextField(verbose_name='Post')
+    status     = models.IntegerField(choices=STATUS, default=0)
+    slug       = models.SlugField(max_length=200, unique=True)
+    title      = models.CharField(max_length=200, blank=True, verbose_name='Title')
+    author     = models.ForeignKey(User, on_delete= models.CASCADE,related_name='Blog_posts')
+    domaine   = models.CharField(max_length=10, choices=DOMAINE, null=True, blank=True,)
     email      = models.EmailField(max_length=100, null=True, blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
     domicile   = models.CharField(max_length=100, null=True, blank=True, default='')
     phone1     = models.CharField(max_length=8,null=True, blank=True)
     phone2     = models.CharField(max_length=8, null=True, blank=True)
     phone_fix  = models.CharField(max_length=15, null=True, blank=True)
+    image      = models.ImageField(upload_to='images/', null=True, blank=True, verbose_name='Photo')
+
+
+    class Meta:
+        ordering = ['-created_on']
 
     def __str__(self):
-        return '{}'.format(self.phone1)
+        return '{}'.format(self.title)
+
+
 
 # ==============================================
 #                  MODELE GISCONSULTING4
