@@ -2,7 +2,6 @@
 {% load static %}
 {% block content %}
 
-
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -18,28 +17,21 @@
         }
       }
     </style>
-
-
-  </head>
-  <body>
-
-
 <main>
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Gis Consulting 4</h1>
-        <p class="lead text-muted">Welcome to Gis Consulting4 all for spatial on Big Data.</p>
+        <p class="lead text-muted">Welcome to Conception for Big Data by</p>
+           <img src="{% static 'gisconsulting.png' %}" height="50%">
         <p>
-          <a href="#" class="btn btn-primary my-2">Us Email</a>
-          <a href="#" class="btn btn-secondary my-2">Views all products</a>
+          <a href="mailto: gisconsulting4@gmail.com" class="btn btn-primary my-2">Email us</a>
+          <a href="#" class="btn btn-info my-2">Views all products</a>
         </p>
-        <img src="{% static 'gisconsulting.png' %}" height="30%">
       </div>
     </div>
   </section>
-            <h4 class="text-center">VIEWS POSTS</h4> <hr>
-
+  <h4 class="text-center">VIEWS POSTS</h4> <hr>
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
@@ -50,7 +42,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-info">Edit</button>
                 </div>
                 <small class="text-muted">9 mins</small>
               </div>
@@ -58,8 +50,7 @@
           </div>
         </div>
     </div>
-
+  </div>
 </main>
-
 
 {% endblock %}

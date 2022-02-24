@@ -17,8 +17,8 @@ def homepage(request,):
     return render(request, 'giscon/homepage.html', {})
 
 def post(request):
-    contact = Post.objects.all()
-    context = { 'contact': contact}
+    posts = Post.objects
+    context = { 'post': posts}
 
     return render(request, 'giscon/post.html', context)
 
