@@ -1,3 +1,10 @@
+
+
+# =================================
+#         ULRS KALALISO
+#             START
+# =================================
+
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls import url
@@ -11,8 +18,6 @@ app_name = 'contacts'
 
 urlpatterns = [
 
-      # path('home/', views.HomePageView, name='homepage'),
-      # path('home/', HomePageView.as_view(), name='homepage'),
       path('admin/', admin.site.urls),
       path('homepage/', views.homepage, name='homepage'),
       path('', views.post, name='post'),
@@ -35,10 +40,4 @@ urlpatterns = [
 
 
 
-
 ]
-
-# =================================
-#         ULRS KALALISO
-#             END
-# =================================

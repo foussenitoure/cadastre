@@ -1,3 +1,9 @@
+
+
+# =================================
+#         ULRS KALALISO
+#             END
+# =================================
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
@@ -14,10 +20,6 @@ urlpatterns = [
       path('admin/', admin.site.urls),
       path('contacts/', include('contacts.urls', namespace='contacts')),
 ]
-if settings.DEBUG:
-      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# =================================
-#         ULRS KALALISO
-#             START
-# =================================
+# if settings.DEBUG:
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
