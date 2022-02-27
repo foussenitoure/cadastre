@@ -22,7 +22,9 @@ def post(request):
 
     return render(request, 'giscon/post.html', context)
 
-
+def detail(request, post_id):
+    post_detail = get_object_or_404(Post, pk=post_id)
+    return  render(request, 'giscon/detail.html', {'post':post_detail})
 
 # def user_login(request):
 #     if request.method == 'POST':

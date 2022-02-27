@@ -1,9 +1,3 @@
-
-# =================================
-#         ULRS KALALISO
-#             START
-# =================================
-
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls import url
@@ -17,9 +11,14 @@ app_name = 'contacts'
 
 urlpatterns = [
 
+# =================================
+#         ULRS KALALISO
+#             START
+# =================================
       path('admin/', admin.site.urls),
       path('homepage/', views.homepage, name='homepage'),
       path('', views.post, name='post'),
+      path('<int:post_id>', views.detail, name='detail'),
       # path('address/', views.address, name='address'),
       # path('upload/', views.image_upload_view, name='upload'),
       # path('upload/detail/<int:upload_id>/', views.vuesimg, name='vues_img'),
