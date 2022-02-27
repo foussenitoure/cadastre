@@ -12,7 +12,6 @@ from  .models import *
 from .forms import *
 
 
-
 def homepage(request,):
     return render(request, 'giscon/homepage.html', {})
 
