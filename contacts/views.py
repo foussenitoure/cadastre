@@ -26,6 +26,10 @@ def detail(request, post_id):
     post_detail = get_object_or_404(Post, pk=post_id)
     return  render(request, 'giscon/detail.html', {'post':post_detail})
 
+def profile(request):
+
+    return render(request, 'giscon/profil.html')
+
 # def user_login(request):
 #     if request.method == 'POST':
 #         username = request.POST['username']
@@ -93,121 +97,6 @@ def detail(request, post_id):
 #
 #     return render(request, 'giscon/change_password.html', context)
 
-
-# ===========================
-#      VIEWS KALALISO
-#          START
-# ===========================
-# def CreatePostView(CreateView):
-#     model = Post
-#     form_class = PostForm
-#     template_name = 'giscon/post.html'
-#     # success_url = reverse_lazy ('giscon/homepage.html')
-#     return render(CreateView, 'giscon/post.html')
-#
-# def HomePageView(ListView):
-#     qp = Post.objects.all()
-#     model = Post
-#     context = { 'homepage': qp}
-#     # template_name =  'giscon/homepage.html'
-#     return render(ListView, 'giscon/homepage.html', context)
-
-
-
-
-#     global image
-#     if request.method == "POST":
-#         form=PostForm(data=request.POST, files=request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             obj=form.instance
-#             return render(request,'giscon/homepage.html', {"obj":obj})
-#     else:
-#        form=PostForm()
-#        image=Post.objects.all()
-#     return render(request, 'giscon/homepage.html', {"image":image, "form":form})
-
-
-
-
-#
-# def vuesimg(request,):
-#     images = Image.objects.all().order_by('Date')
-#     # images = Product_image.objects.all()
-#     context = {'images':images}
-#     # return HttpResponseRedirect(reverse('giscon/detail_image.html', args=[pk]))
-#     return redirect('giscon/detail_image.html')
-# # return HttpResponseRedirect(reverse('app_blog:blog_detail',args=[pk]))
-
-
-# def image_upload_view(request, **kwargs):
-#     f = ImageForm
-#     if request.method == "POST" or None:
-#         f=ImageForm(request.POST, request.FILES)
-#         if f.is_valid():
-#             f.save()
-#             img_obj=f.instance
-#             return render(request, 'giscon/index.html', {'form': f, 'img_obj': img_obj})
-#         else:
-#             form = ImageForm()
-#     return render(request, 'giscon/index.html', {'form': f})
-
-
-
-# def person(request):
-#     if request.method == 'POST':
-#             sta = request.POST.get("status")
-#             se = request.POST.get("sex")
-#             cat = request.POST.get("category")
-#             pre = request.POST.get("prenom")
-#             no = request.POST.get("nom")
-#             cont = request.POST.get("contact_1")
-#             # cin1 = request.POST.get("n_cin")
-#             nn = request.POST.get("nina")
-#             prf = request.POST.get("profession")
-#             nat = request.POST.get("nationalite")
-#             # n_f = request.POST.get("n")
-#             # ss = request.POST.get("siege_social")
-#             # resp = request.POST.get("responsable")
-#             # ema = request.POST.get("email")
-#             cret = request.POST.get('created_at')
-#
-#             data = Person(status=sta,
-#                           prenom=pre,
-#                           nom=no,
-#                           sex=se,
-#                           category=cat,
-#                           contact_1=cont,
-#                           # n_cin=cin1,
-#                           nina=nn,
-#                           profession=prf,
-#                           nationalite=nat,
-#                           # n=n_f,
-#                           # siege_social=ss,
-#                           # responsable=resp,
-#                           # email=ema,
-#                           created_at=cret)
-#             data.save()
-#
-#             return HttpResponseRedirect(reverse('mesure'))
-#     else:
-#         form = PersonForm()
-#     return render(request, 'giscon/person.html', {'form': form})
-#
-#
-# def person_detail(request, person_id):
-#     qs = Person.objects.all()
-#
-#     context = {'detail_person': qs,}
-#
-#     return render(request, 'giscon/person_detail.html', context)
-
-
-
-
-def profile(request):
-
-    return render(request, 'giscon/profil.html')
 
 
 
