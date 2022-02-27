@@ -16,8 +16,8 @@ def homepage(request,):
     return render(request, 'giscon/homepage.html', {})
 
 def post(request):
-    posts = Post.objects
-    context = { 'post_list': posts}
+    post = Post.objects
+    context = { 'post_list': post}
 
     return render(request, 'giscon/post.html', context)
 
@@ -26,7 +26,6 @@ def detail(request, post_id):
     return  render(request, 'giscon/detail.html', {'post':post_detail})
 
 def profile(request):
-
     return render(request, 'giscon/profil.html')
 
 # def user_login(request):
