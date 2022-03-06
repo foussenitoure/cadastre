@@ -28,6 +28,9 @@ def detail(request, post_id):
 def profile(request):
     return render(request, 'giscon/profil.html')
 
+def info(request):
+    return render(request, 'giscon/info.html')
+
 # def user_login(request):
 #     if request.method == 'POST':
 #         username = request.POST['username']

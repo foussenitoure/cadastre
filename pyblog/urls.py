@@ -19,6 +19,7 @@ urlpatterns = [
 # =================================
       path('admin/', admin.site.urls),
       path('homepage/', views.homepage, name='homepage'),
+      path('info/', views.info, name='detail_info'),
       path('', views.post, name='post'),
       path('<int:post_id>', views.detail, name='detail'),
       # path('address/', views.address, name='address'),

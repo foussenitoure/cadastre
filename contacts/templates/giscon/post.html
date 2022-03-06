@@ -19,14 +19,13 @@
     </style>
 <main>
   <section class="py-2 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-<!--        <h1 class="fw-light">Gis Consulting 4</h1>-->
+    <div class="row py-lg-2">
+      <div class="col-lg-6 col-md-8 mx-auto"> <br><br>
         <p class="lead text-muted">Welcome to Conception for Big Data by</p>
-           <img src="{% static 'img/logo.png' %}" height="20%">
+           <img class="position-relative" src="{% static 'img/logo.png' %}" height="20%">
         <p>
           <a href="mailto: gisconsulting4@gmail.com" class="btn btn-primary my-2">Email us</a>
-          <a href="#" class="btn btn-info my-2">Views all products</a>
+          <a href="{% url 'detail_info' %}" class="btn btn-info my-2">Views all detail</a>
         </p>
       </div>
     </div>

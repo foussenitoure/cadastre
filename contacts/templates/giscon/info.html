@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+<main>
+  <section class="py-2 text-center container">
+    <div class="row py-lg-2">
+      <div class="col-lg-6 col-md-8 mx-auto"> <br><br>
+        <p class="lead text-muted">Welcome to Conception for Big Data by</p>
+           <img class="position-relative" src="{% static 'img/logo.png' %}" height="20%">
+        <p>
+          <a href="{% url 'post' %}" class="btn btn-info my-2">Back</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <div><h5 class="text-center">DETAIL INFO</h5><hr> </div>
+    <div class="container">
+      <div class="row ">
+      <p> Le lorem ipsum est, en imprimerie, une suite de mots sans signification
+          utilisée à titre provisoire
+          Le lorem ipsum est, en imprimerie, une suite de mots sans signification
+          utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée.
+          Généralement, on utilise un texte en faux latin, le Lorem ipsum oupour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée.
+          Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
