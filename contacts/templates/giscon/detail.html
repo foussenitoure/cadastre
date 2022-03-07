@@ -24,7 +24,9 @@
       <div class="col-lg-6 col-md-8 mx-auto">
 <!--        <h1 class="fw-light">Gis Consulting 4</h1>-->
         <p class="lead text-muted">Post Detail</p>
+          <a href="{% url 'detail' post.id %}">
               <img class="card-img-top" src="{{ post.image.url }}">
+          </a>
               <p class="card-text"><h5>Artilce:</h5> {{ post.content }}</p>
 
             <p><a href="{% url 'post' %}" class="btn btn-primary my-2">Back</a></p>
