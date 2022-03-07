@@ -12,8 +12,8 @@ from  .models import *
 from .forms import *
 
 
-def homepage(request,):
-    return render(request, 'giscon/homepage.html', {})
+def maps(request,):
+    return render(request, 'giscon/maps.html', {})
 
 def post(request):
     post = Post.objects
@@ -90,7 +90,7 @@ def info(request):
 #             form.save()
 #             update_session_auth_hash(request, form.user)
 #             messages.success(request,('You Have Edited Your Password...'))
-#             return redirect('giscon/homepage.html')
+#             return redirect('giscon/maps.html')
 #     else:
 #         form = PasswordChangeForm(user=request.user)
 #
