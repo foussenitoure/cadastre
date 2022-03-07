@@ -28,6 +28,15 @@
               <img class="card-img-top" src="{{ post.image.url }}">
           </a>
               <p class="card-text"><h5>Artilce:</h5> {{ post.content }}</p>
+          <div>
+                             <div class="map">
+                                  {% leaflet_map "map"%}
+                              </div>
+                               <div>
+                                    {% leaflet_js %}
+                                    {% leaflet_css %}
+                               </div>
+          </div>
 
             <p><a href="{% url 'post' %}" class="btn btn-primary my-2">Back</a></p>
 
