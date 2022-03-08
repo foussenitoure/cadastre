@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load leaflet_tags %}
 {% block content %}
 
 <style>
@@ -20,8 +21,7 @@
 <main>
   <section class="py-2 text-center container">
     <div class="row">
-      <div class="col-lg-10"> <br>
-
+      <div class="col-lg-12"> <br>
         <p class="lead text-muted">Welcome to Conception for Big Data by</p>
           <a href="{% url 'detail_info' %}">
               <img class="position-relative" src="{% static 'img/logo.png' %}" height="20%">
