@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'reportlab',
+    'fabric',
 
 ]
 
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'pyblog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'plateform',
+        'NAME': 'gisconsultingdb',
         'USER': 'myprojectuser',
         'PASSWORD':'password',
         'HOST': '127.0.0.1',

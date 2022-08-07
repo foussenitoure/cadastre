@@ -24,7 +24,6 @@ class Post(models.Model):
         (0, "Draft"),
         (1, "Publish")
     )
-
     content    = models.TextField(verbose_name='Post')
     status     = models.IntegerField(choices=STATUS, default=0)
     slug       = models.SlugField(max_length=200, unique=True)
@@ -39,15 +38,14 @@ class Post(models.Model):
     phone2     = models.CharField(max_length=8, null=True, blank=True)
     phone_fix  = models.CharField(max_length=15, null=True, blank=True)
     image      = models.ImageField(upload_to='images/', null=True, blank=True, verbose_name='Photo')
-
+    # like        = models.IntegerField()
+    # comment     = models.CharField(max_length=500, null=True, blank=True)
 
     class Meta:
         ordering = ['-created_on']
 
     def __str__(self):
         return '{}'.format(self.title)
-
-
 
 # ==============================================
 #                  MODELE GISCONSULTING4
