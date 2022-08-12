@@ -1,11 +1,14 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os
+# from multiprocessing import Connection
 
 from fabric.api import *
 # $ export PYTHONIOENCODING=utf8
-# from fabric.api import Connection, task
+from fabric.api import *
 
+# server = Connection(host="root@147.182.235.200:22", connect_kwargs={"password": "Allahkbarou1@Portail"})
+# server = Connection(host="root@147.182.235.200:22", connect_kwargs={"password": "Allahkbarou1@Portail"})
 # server = Connection(host="ombportail.net:22", connect_kwargs={"password": "fulani"})
 # server = Connection(host="root@server.com:22", connect_kwargs={"password": "mypassword"})
 env.hosts = ['root@147.182.235.200']
