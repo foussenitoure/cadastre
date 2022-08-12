@@ -106,6 +106,7 @@ class Recette_fiscale(models.Model):
 class Document_Administration(models.Model):
     id = models.AutoField(primary_key=True)
     DOC_ADM = (
+            ('RAS', 'ras'),
             ('DROITS REELS', 'Droits réels'),
             ('DROIT COUTUMIER', 'Droit coutumier'),
             ('TITRE FONCIER', 'Titre Foncier'),
