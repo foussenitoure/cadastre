@@ -14,14 +14,21 @@ from fabric.api import *
 env.hosts = ['root@147.182.235.200']
 venv = 'source /opt/geoportail/cadastre/venv/bin/activate'
 
+
+def _get_code():
+    sudo("%s git pull branch main_cadastre")
+
 def _install_doc():
     sudo("%s && pip install -r requirements_cada.txt" % venv)
 
-def _migrate():
-    sudo("%s && python manage.py migrate" % venv)
 
-def _get_code():
-    sudo("%s git pull origin main_cadastre")
+def _makemigrations():
+
+    sudo("%s && python3 manage.py makemigrations" % venv)
+
+def _migrate():
+    sudo("%s && python3 manage.py migrate" % venv)
+
 def _reload():
     sudo("touch rebuild")
 
@@ -36,6 +43,7 @@ def basic_deploy():
 def deploy():
      with cd('/opt/geoportail/cadastre'):
         _install_doc()
-        _migrate()
         _get_code()
+        _makemigrations()
+        _migrate()
         _reload()
