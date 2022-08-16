@@ -99,7 +99,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
@@ -114,6 +115,7 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 MEDIA_URL= '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'pyblog/static')]
+AUTH_USER_MODEL = "contacts.CustomUser"
 
 
 FORM_RENDERER = 'django.forms.renderers.DjangoTemplates'
@@ -123,3 +125,4 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 #CONNECTOR TO GDAL
 GDAL_LIBRARY_PATH = "/Applications/Postgres.app/Contents/Versions/10/lib/libgdal.dylib"
 GEOS_LIBRARY_PATH = "/Applications/Postgres.app/Contents/Versions/10/lib/libgeos_c.dylib"
+

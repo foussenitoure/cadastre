@@ -1,10 +1,11 @@
-from django.db import models
+
 from django.forms import forms
 from django.contrib.gis.db import models as gis_models
 import random
 from random import randint
 # from django.db.models.AutoField
-from django.contrib.auth.models import User
+from django.contrib.auth.models import  User, AbstractUser
+from django.db import models
 from django.db.models.signals import pre_save
 
 
@@ -12,6 +13,12 @@ from django.db.models.signals import pre_save
 #                  MODELE GISCONSULTING4
 #                        START
 # ==============================================
+
+
+class CustomUser(AbstractUser):
+    phone = models.CharField(max_length=8, blank=False)
+
+
 
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
@@ -28,15 +35,11 @@ class Post(models.Model):
     status     = models.IntegerField(choices=STATUS, default=0)
     slug       = models.SlugField(max_length=200, unique=True)
     title      = models.CharField(max_length=200, blank=True, verbose_name='Title')
-    author     = models.ForeignKey(User, on_delete= models.CASCADE,related_name='Blog_posts')
+    # author     = models.ForeignKey(User, on_delete= models.CASCADE,related_name='Blog_posts')
     domaine   = models.CharField(max_length=10, choices=DOMAINE, null=True, blank=True,)
-    email      = models.EmailField(max_length=100, null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     domicile   = models.CharField(max_length=100, null=True, blank=True, default='')
-    phone1     = models.CharField(max_length=8,null=True, blank=True)
-    phone2     = models.CharField(max_length=8, null=True, blank=True)
-    phone_fix  = models.CharField(max_length=15, null=True, blank=True)
     image      = models.ImageField(upload_to='images/', null=True, blank=True, verbose_name='Photo')
     # like        = models.IntegerField()
     # comment     = models.CharField(max_length=500, null=True, blank=True)
