@@ -30,6 +30,7 @@ class MyUserManager(BaseUserManager):
        return user
 
 class CustomUser(AbstractBaseUser):
+    id = models.AutoField(primary_key=True)
     phone = models.CharField(max_length=8, blank=False)
     email = models.EmailField(
         unique=True,
