@@ -14,3 +14,11 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 admin.site.register(Post, PostAdmin)
+
+
+class CustomerUserAdmin(admin.ModelAdmin):
+    list_display = ()
+    # list_filter = ("status",)
+    # search_fields = ['title', 'content']
+    # prepopulated_fields = {'slug': ('title',)}
+admin.site.register(CustomUser, CustomerUserAdmin)
