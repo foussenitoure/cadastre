@@ -4,13 +4,52 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 # from django.views.generic import ListView, CreateView
 from django.template import context
 from django.template import defaulttags
 from  .models import *
 from .forms import *
+from django.contrib.auth.forms import UserCreationForm
 
+
+class CustomSignupForm(UserCreationForm):
+    class Meta:
+        model = CustomUser
+        fields = UserCreationForm.Meta.fields
+
+
+def signup(request):
+    context = {}
+
+    if request.method == 'POST':
+            form = CustomSignupForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return HttpResponse('Bienvenue  cher Gisconsulting!')
+                # return HttpResponseRedirect('maps')
+            else:
+                context["errors"] = form.errors
+
+    form = CustomSignupForm()
+    context["form"] = form
+
+    return render(request, 'accounts/signup.html', context={"form": form})
+#
+#     if request.method == 'POST':
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             username = form.cleaned_data['username']
+#             password = form.cleaned_data['password1']
+#             user = authenticate(username=username, password=password)
+#             login(request, user)
+#             messages.success(request,('You Have Registered now...'))
+#             return redirect('homepage')
+#     else:
+#         form = SignUpForm(request.POST)
+#     context = {'form': form}
+#     return render(request, 'giscon/register.html', context)
 
 def maps(request,):
     return render(request, 'giscon/maps.html', {})
@@ -82,7 +121,7 @@ def info(request):
 #         context = {'form': form}
 #     return render(request, 'giscon/edit_profile.html', context)
 #
-#
+
 # def change_password(request):
 #     if request.method == 'POST':
 #         form = PasswordChangeForm(data=request.POST, user=request.user)

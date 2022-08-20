@@ -6,17 +6,21 @@ from random import randint
 # from django.db.models.AutoField
 # from django.contrib.auth.models import  User, AbstractUser
 from django.db import models
-from django.db.models.signals import pre_save
+from pyblog import settings
+from django.db.models.signals import post_save
 
 
 # ==============================================
 #                  MODELE GISCONSULTING4
 #                        START
 # ==============================================
+
+
+
 class MyUserManager(BaseUserManager):
     def create_user(self, email, password=None):
         if not email:
-            raise ValueError("Vous devez entrer un email.")
+            raise ValueError("Vous devez entrer un addresse email.")
         user = self.model(email=self.normalize_email(email))
         user.set_password =(password)
         user.save()
@@ -31,6 +35,7 @@ class MyUserManager(BaseUserManager):
 
 class CustomUser(AbstractBaseUser):
     id = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=150, blank=True)
     phone = models.CharField(max_length=8, blank=False)
     email = models.EmailField(
         unique=True,
@@ -51,7 +56,14 @@ class CustomUser(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
+class Profile(models.Model):
+    user  = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
+def post_save_receiver( sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+post_save.connect(post_save_receiver, sender=settings.AUTH_USER_MODEL)
 
 
 

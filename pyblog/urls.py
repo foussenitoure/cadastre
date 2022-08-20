@@ -22,6 +22,7 @@ urlpatterns = [
       path('info/', views.info, name='detail_info'),
       path('', views.post, name='post'),
       path('<int:post_id>', views.detail, name='detail'),
+      path('signup/', views.signup, name='sign up'),
       # path('address/', views.address, name='address'),
       # path('upload/', views.image_upload_view, name='upload'),
       # path('upload/detail/<int:upload_id>/', views.vuesimg, name='vues_img'),

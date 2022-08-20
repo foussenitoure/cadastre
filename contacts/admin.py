@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from django.forms import Textarea
 from django.db import models
 
@@ -16,9 +17,21 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Post, PostAdmin)
 
 
-class CustomerUserAdmin(admin.ModelAdmin):
-    list_display = ()
-    # list_filter = ("status",)
-    # search_fields = ['title', 'content']
-    # prepopulated_fields = {'slug': ('title',)}
-admin.site.register(CustomUser, CustomerUserAdmin)
+# class CustomerUserAdmin(admin.ModelAdmin):
+#     list_display = ()
+#     # list_filter = ("status",)
+#     # search_fields = ['title', 'content']
+#     # prepopulated_fields = {'slug': ('title',)}
+# admin.site.register(CustomUser, CustomerUserAdmin
+
+
+from .models import CustomUser
+
+
+class CustomerUserAdmin(object):
+    pass
+
+
+# class CustomerUserAdmin(admin.ModelAdmin):
+#
+#       admin.site.register(CustomerUserAdmin, CustomerUserAdmin)
