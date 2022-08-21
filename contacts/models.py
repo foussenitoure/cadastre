@@ -1,4 +1,5 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractUser
 from django.forms import forms
 from django.contrib.gis.db import models as gis_models
 import random
@@ -17,53 +18,51 @@ from django.db.models.signals import post_save
 
 
 
-class MyUserManager(BaseUserManager):
-    def create_user(self, email, password=None):
-        if not email:
-            raise ValueError("Vous devez entrer un addresse email.")
-        user = self.model(email=self.normalize_email(email))
-        user.set_password =(password)
-        user.save()
-        return user
+# class MyUserManager(BaseUserManager):
+#     def create_user(self, email, password=None):
+#         if not email:
+#             raise ValueError("Vous devez entrer un addresse email.")
+#         user = self.model(email=self.normalize_email(email))
+#         user.set_password =(password)
+#         user.save()
+#         return user
+#
+#     def create_superuser(self, email, password=None):
+#        user = self.create_user(email=email, password=password)
+#        user.is_admin = True
+#        user.is_staff = True
+#        user.save()
+#        return user
 
-    def create_superuser(self, email, password=None):
-       user = self.create_user(email=email, password=password)
-       user.is_admin = True
-       user.is_staff = True
-       user.save()
-       return user
-
-class CustomUser(AbstractBaseUser):
-    id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=150, blank=True)
+class CustomUser(AbstractUser):
     phone = models.CharField(max_length=8, blank=False)
-    email = models.EmailField(
-        unique=True,
-        max_length=255,
-        blank=True,
-    )
-    name = models.CharField(max_length=50, blank=True)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    is_admin = models.BooleanField(default=False)
+    # email = models.EmailField(
+    #     unique=True,
+    #     max_length=255,
+    #     blank=True,
+    # )
+    # name = models.CharField(max_length=50, blank=True)
+    # is_active = models.BooleanField(default=True)
+    # is_staff = models.BooleanField(default=False)
+    # is_admin = models.BooleanField(default=False)
+    #
+    # USERNAME_FIELD = "username"
+    # objects = MyUserManager()
+    #
+    # def has_perm(self, perm, obj=None):
+    #     return True
+    #
+    # def has_module_perms(self, app_label):
+    #     return True
 
-    USERNAME_FIELD = "email"
-    objects = MyUserManager()
-
-    def has_perm(self, perm, obj=None):
-        return True
-
-    def has_module_perms(self, app_label):
-        return True
-
-class Profile(models.Model):
-    user  = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
-def post_save_receiver( sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-post_save.connect(post_save_receiver, sender=settings.AUTH_USER_MODEL)
+# class Profile(models.Model):
+#     user  = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+#
+# def post_save_receiver(sender, instance, created, **kwargs):
+#     if created:
+#         Profile.objects.create(user=instance)
+#
+# post_save.connect(post_save_receiver, sender=settings.AUTH_USER_MODEL)
 
 
 

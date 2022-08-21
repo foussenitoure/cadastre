@@ -5,15 +5,12 @@
             <div class="col-md-6 offset-md-3">
                 <form method="POST">
                 {% csrf_token %}
-
-                      {{ form.as_p }}
-
-                {% for error, message in errors.items %}
-                    <h3 style="color: red;">
-                        {{ message }}
-                    </h3>
-                {% endfor %}
-                      <input type="Submit" class="btn btn-secondary">
+               {{ form.as_p }}
+              {% for message in errors.values %}
+                  <h3 style="color: red;">{{ message }}</h3>
+              {% endfor %}
+                      <input type="Submit" class="btn btn-secondary" value="S'inscrire">
                 </form>
             </div>
  {% endblock %}
+

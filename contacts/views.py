@@ -11,6 +11,7 @@ from django.template import defaulttags
 from  .models import *
 from .forms import *
 from django.contrib.auth.forms import UserCreationForm
+from contacts.models import CustomUser,  Post
 
 
 class CustomSignupForm(UserCreationForm):
@@ -18,22 +19,18 @@ class CustomSignupForm(UserCreationForm):
         model = CustomUser
         fields = UserCreationForm.Meta.fields
 
-
-def signup(request):
+def signup(request, ):
     context = {}
-
     if request.method == 'POST':
-            form = CustomSignupForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return HttpResponse('Bienvenue  cher Gisconsulting!')
-                # return HttpResponseRedirect('maps')
-            else:
-                context["errors"] = form.errors
+        form = CustomSignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Bienvenue !')
+        else:
+            context["errors"] = form.errors
 
     form = CustomSignupForm()
     context["form"] = form
-
     return render(request, 'accounts/signup.html', context={"form": form})
 #
 #     if request.method == 'POST':
