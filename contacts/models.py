@@ -55,14 +55,14 @@ class CustomUser(AbstractUser):
     # def has_module_perms(self, app_label):
     #     return True
 
-# class Profile(models.Model):
-#     user  = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-#
-# def post_save_receiver(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
-#
-# post_save.connect(post_save_receiver, sender=settings.AUTH_USER_MODEL)
+class Profile(models.Model):
+    user  = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+def post_save_receiver(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+post_save.connect(post_save_receiver, sender=settings.AUTH_USER_MODEL)
 
 
 

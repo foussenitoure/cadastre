@@ -25,7 +25,7 @@ def signup(request, ):
         form = CustomSignupForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('Bienvenue !')
+            return HttpResponseRedirect('post')
         else:
             context["errors"] = form.errors
 
