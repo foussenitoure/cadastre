@@ -35,6 +35,7 @@ from django.db.models.signals import post_save
 #        return user
 
 class CustomUser(AbstractUser):
+    id = models.AutoField(primary_key=True)
     phone = models.CharField(max_length=8, blank=False)
     # email = models.EmailField(
     #     unique=True,
@@ -56,6 +57,7 @@ class CustomUser(AbstractUser):
     #     return True
 
 class Profile(models.Model):
+    id = models.AutoField(primary_key=True)
     user  = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 def post_save_receiver(sender, instance, created, **kwargs):

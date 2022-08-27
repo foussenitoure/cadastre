@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
        <h3 class="text-center" >Signup</h3>
             <div class="col-md-6 offset-md-3">
                 <form method="POST">
                 {% csrf_token %}
-               {{ form.as_p }}
-              {% for message in errors.values %}
+               {{form|crispy}}
+                 {% for message in errors.values %}
                   <h3 style="color: red;">{{ message }}</h3>
-              {% endfor %}
+                 {% endfor %}
                       <input type="Submit" class="btn btn-secondary" value="S'inscrire">
                 </form>
             </div>

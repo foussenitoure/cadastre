@@ -36,6 +36,7 @@
             position: relative;
 
           }
+
       footer{
             padding: 10px;
             background-color: gray;
@@ -60,24 +61,23 @@
 <!--                  Homepage-->
 <!--                 </a>-->
 
-                    <a href="{% url 'post' %}" class="nav-link link-dark">
-                      Posted
-                    </a>
-
-                   <a>
-
                    </a>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">About</a>
+                            <a class="nav-link text-black font-weight-bold" href="{% url 'home' %}">Homepage</a>
+                        </li>
+                        <li class="nav-item text-black">
+                            <a class="nav-link text-black font-weight-bold" href="{% url 'post' %}">Posted</a>
                         </li>
                         <li class="nav-item text-black">
                             <a class="nav-link text-black font-weight-bold" href="#">Policy</a>
                         </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Contact</a>
+                         <li class="nav-item text-black">
+                            <a class="nav-link text-black font-weight-bold" href="#"> Contacts </a>
                         </li>
+
+
                     </ul>
                 </div>
                 </div>
@@ -145,41 +145,18 @@
     <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
   </symbol>
 </svg>
+<div class="row">
+    <div class="container2">
 
+    </div>
+
+</div>
 <div class="row col-lg-12">
          <div class=container>
                 {% block content %}
+
                 {% endblock %}<br />
-          <div class="card-group">
-                  <div class="card">
-                    <img class="card-img-top" src="..." alt="LOGO...">
-                    <div class="card-body">
-                      <h5 class="card-title"> <a link href="https://www.kalalso.com"> KALALSO</a></h5>
-                      <p class="card-text">Kalalso est une application qui permet de gerer la gestion integrale d'une entreprise de coupe et couture, la version d'essai est validée pendant 60  jours.</p>
-                      <p class="card-text"><small class="text-muted">Publiée le 20 Janvier 2020</small></p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <img class="card-img-top" src="..." alt="LOGO...">
-                    <div class="card-body">
-                        <h5 class="card-title"><a link href="https://www.ombportail.net">CADASTRE RURAL</a></h5>
-                      <p class="card-text">Cadastre rural est une application de gestion des terres agricoles et l'urbanisation de la ville, la periode d'essai est validée pendant 12 mois, elle est
-                          conçue par la société Gisconsulting4.</p>
-                      <p class="card-text"><small class="text-muted">Publiée le 25 Janvier 2021</small></p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <img class="card-img-top" src="..." alt="LOGO...">
-                    <div class="card-body">
-                        <h5 class="card-title"><a link href="https://www.constructorsarl.com">CONSTRUCTOR SARL</a></h5>
-                      <p class="card-text">Gestion des stocks est une plateforme de gestion de tous les opérations de gestions de stock
-                      commercial, la version d'essai est gratuit pendant 12 mois, elle est conçue par la Société Gisconsulting4 </p>
-                      <p class="card-text"><small class="text-muted">Publiée le 22 Septembre 2021</small></p>
-                    </div>
-                  </div>
-                </div>
-          </div>
-</div>
+
 <footer><br/><hr>
     <div class="text-center">
         <small style="color: white">Copyright @ 2018-2021 GisConsulting4</small>

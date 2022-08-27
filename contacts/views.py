@@ -25,13 +25,34 @@ def signup(request, ):
         form = CustomSignupForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('post')
+            return HttpResponseRedirect('home')
         else:
             context["errors"] = form.errors
 
     form = CustomSignupForm()
     context["form"] = form
     return render(request, 'accounts/signup.html', context={"form": form})
+
+def home(request):
+    return render(request, 'giscon/home.html')
+
+def profile(request):
+    return HttpResponse(f"Bienvenue {request.user.email}")
+
+def maps(request,):
+    return render(request, 'giscon/maps.html', {})
+
+def post(request):
+    post = Post.objects
+    context = { 'post_list': post}
+    return render(request, 'giscon/post.html', context)
+
+def detail(request, post_id):
+    post_detail = get_object_or_404(Post, pk=post_id)
+    return  render(request, 'giscon/detail.html', {'post':post_detail})
+
+def info(request):
+    return render(request, 'giscon/info.html')
 #
 #     if request.method == 'POST':
 #         form = SignUpForm(request.POST)
@@ -48,24 +69,7 @@ def signup(request, ):
 #     context = {'form': form}
 #     return render(request, 'giscon/register.html', context)
 
-def maps(request,):
-    return render(request, 'giscon/maps.html', {})
 
-def post(request):
-    post = Post.objects
-    context = { 'post_list': post}
-
-    return render(request, 'giscon/post.html', context)
-
-def detail(request, post_id):
-    post_detail = get_object_or_404(Post, pk=post_id)
-    return  render(request, 'giscon/detail.html', {'post':post_detail})
-
-def profile(request):
-    return render(request, 'giscon/profil.html')
-
-def info(request):
-    return render(request, 'giscon/info.html')
 
 # def user_login(request):
 #     if request.method == 'POST':
