@@ -6,7 +6,9 @@
             <div class="col-md-6 offset-md-3">
                 <form method="POST">
                 {% csrf_token %}
-               {{form|crispy}}
+
+                  {{form|crispy}}
+
                  {% for message in errors.values %}
                   <h3 style="color: red;">{{ message }}</h3>
                  {% endfor %}
