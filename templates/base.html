@@ -57,10 +57,6 @@
 
                <div class="collapse navbar-collapse" id="navbar">
 
-<!--                 <a href="{% url 'maps' %}" class="nav-link">-->
-<!--                  Homepage-->
-<!--                 </a>-->
-
                    </a>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
@@ -76,7 +72,9 @@
                          <li class="nav-item text-black">
                             <a class="nav-link text-black font-weight-bold" href="#"> Contacts </a>
                         </li>
-
+                       <li class="nav-item text-black">
+                            <a class="nav-link text-black font-weight-bold" href="{% url 'maps' %}"> Maps </a>
+                        </li>
 
                     </ul>
                 </div>
@@ -151,11 +149,14 @@
     </div>
 
 </div>
-<div class="row col-lg-12">
+<div class="row ">
          <div class=container>
                 {% block content %}
 
-                {% endblock %}<br />
+                {% endblock %}
+         </div>
+
+</div>
 
 <footer><br/><hr>
     <div class="text-center">

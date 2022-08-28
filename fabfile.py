@@ -1,4 +1,6 @@
-#!/usr/bin/env python3
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from virtualenv.activation import bash
 #!/usr/bash
 # -*- coding: utf-8 -*-
@@ -13,7 +15,8 @@ from fabric.api import local
 # env.hosts = ['root@gisconsulting4.com']
 import pyblog
 
-env.hosts = ['root@165.232.131.54']
+env.hosts = ['www.gisconsulting4.com']
+# env.hosts = ['root@165.232.131.54']
 env.password = 'fulani'
 env.user = 'fulani'
 venv = 'source /home/fulani/giscon/cadastre/venv/bin/activate'
