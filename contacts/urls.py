@@ -18,5 +18,5 @@ app_name = 'contacts'
 urlpatterns = [
       path('admin/', admin.site.urls),
       path('contacts/', include('contacts.urls', namespace='contacts')),
-      # path('signup/', views.signup, name='signup'),
+
 ]

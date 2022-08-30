@@ -15,11 +15,14 @@ from fabric.api import local
 # env.hosts = ['root@gisconsulting4.com']
 import pyblog
 
+
 env.hosts = ['www.gisconsulting4.com']
 # env.hosts = ['root@165.232.131.54']
 env.password = 'fulani'
 env.user = 'fulani'
 venv = 'source /home/fulani/giscon/cadastre/venv/bin/activate'
+
+# GIT_REPO = "https://github.com/foussenitoure/cadastre.git:gisconsulting"
 
 repo='https://github.com/foussenitoure/cadastre.git:gisconsulting'
 # repo='https://github.com/foussenitoure/cadastre:gisconsulting.git'
@@ -54,6 +57,7 @@ def _migrate():
 
 def _reload():
     cd("touch rebuild")
+    sudo('service nginx reload')
 
 @task(alias="d")
 def basic_deploy():
