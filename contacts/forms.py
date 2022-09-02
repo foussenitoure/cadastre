@@ -12,7 +12,7 @@ import datetime
 from .models import *
 
 # ==============================================
-#                  FORM GISCON
+#                  FORM GISCONSULTING
 #                        START
 # ==============================================
 class PostForm(forms.Form):
@@ -22,6 +22,17 @@ class PostForm(forms.Form):
         exclude = ['tags']
 
 
+class ManagForm(forms.Form):
+    class Meta:
+        model = CustomUser
+        fields = ['__all__' ]
+        exclude = ['password']
+
+class UsersForm(forms.Form):
+    class Meta:
+        model = CustomUser
+        fields = ['__all__' ]
+        exclude = ['password']
 
 # ==============================================
 #                  FORM GISCON

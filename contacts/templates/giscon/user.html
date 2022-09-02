@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+       <h3 class="text-center">Users</h3>
+            <div class="col-md-6 offset-md-3">
+              <form method="POST">
+                {% csrf_token %}
+                  <a href="{% url 'user' %}"></a>
+                       {% for user_list in users_list.all %}
+                           {{ form|crispy }}
+                       {% endfor %}
+                  <input type="Submit" class="btn btn-secondary" value="Valider">
+                </form>
+            </div>
+{% endblock %}

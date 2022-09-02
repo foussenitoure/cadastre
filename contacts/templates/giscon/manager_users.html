@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+       <h3 class="text-center" >Dashbord Managers</h3>
+            <div class="col-md-6 offset-md-3">
+              <form method="POST">
+                {% csrf_token %}
+                  <a href="{% url 'manager' %}"></a>
+                  {% for manager in manager_list.all %}
+                      {{ form.as_p }}
+                   {% endfor %}
+                  <input type="Submit" class="btn btn-secondary" value="Valider">
+                </form>
+            </div>
+{% endblock %}

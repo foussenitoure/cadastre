@@ -4,12 +4,12 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, request
 # from django.views.generic import ListView, CreateView
 from django.template import context
 from django.template import defaulttags
 from  .models import *
-from .forms import *
+from .forms import ManagForm, UserManager
 from django.contrib.auth.forms import UserCreationForm
 from contacts.models import CustomUser,  Post
 
@@ -53,6 +53,34 @@ def detail(request, post_id):
 
 def info(request):
     return render(request, 'giscon/info.html')
+
+
+# class managForm(ManagForm):
+#     class Meta:
+#         model = CustomUser
+
+def manager(request,):
+    manager = CustomUser.objects
+    context = {'manager_list':manager}
+    return render(request, 'giscon/manager_users.html', context)
+
+def user(request,):
+    user_list = CustomUser.objects
+    context = {'user_list': user_list}
+    return render(request, 'giscon/user.html', context)
+
+    # context = {}
+    # if request.method == 'POST':
+    #     form = managForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         return HttpResponseRedirect('home')
+    # form = managForm()
+    # context["form"] = form
+    # return render(request, 'giscon/manager_users.html', context={"form": form})
+
+
+
 #
 #     if request.method == 'POST':
 #         form = SignUpForm(request.POST)
@@ -138,11 +166,8 @@ def info(request):
 #
 #     return render(request, 'giscon/change_password.html', context)
 
-
-
-
 # ===========================
-#      VIEWS KALALISO
+#      VIEWS GISCONSULTING
 #          END
 # ===========================
 

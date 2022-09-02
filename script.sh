@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 import os
-
 from pygments.lexers import python
 import manage
 
-python manage.py dumpdata --format=json contacts > /Users/toure/PycharmProjects/douniyasoba/tmp/$(date +"%Y%m%d_%H:%M:%S")_data.json;
-psql -U postgresql;
+python3 manage.py dumpdata --format=json contacts > /Users/foussenytoure/Documents/ProjectPycharm/douniyasoba/tmp/$(date +"%Y%m%d_%H:%M:%S")_data.json;
+psql -U postgres;
 drop database gisconsultingdb;
 create database gisconsultingdb;
 create user myprojectuser WITH PASSWORD 'password';
@@ -16,7 +15,7 @@ GRANT ALL PRIVILEGES ON DATABASE gisconsultingdb TO myprojectuser;
 \c gisconsultingdb;
 create extension postgis;
 CREATE EXTENSION postgis_topology;
-python manage.py makemigrations;
-python manage.py migrate;
-python manage.py createsuperuser;
-python manage.py loaddata  /Users/toure/PycharmProjects/douniyasoba/tmp/$(current +"%Y%m%d_%H:%M:%S")_data.json
+python3 manage.py makemigrations;
+python3 manage.py migrate;
+python3 manage.py createsuperuser;
+python3 manage.py loaddata  /Users/foussenytoure/Documents/ProjectPycharm/douniyasoba/tmpp/$(current +"%Y%m%d_%H:%M:%S")_data.json

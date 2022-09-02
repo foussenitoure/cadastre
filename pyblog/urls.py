@@ -25,6 +25,9 @@ urlpatterns = [
     path('<int:post_id>', views.detail, name='detail'),
     path('', views.signup, name='signup'),
     path('profile/', views.profile, name='profile'),
+    path('user/', views.user, name='user'),
+    path('manager_users/', views.manager, name='manager'),
+
 
     # path('address/', views.address, name='address'),
     # path('upload/', views.image_upload_view, name='upload'),
